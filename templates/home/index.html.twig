@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echange Scolaire{% endblock %}
+
+{% block body %}
+    <section class="top">
+        <header id="recherche" class="container">
+            <h1 class="w-50 font-weight-bold">Recherchez le voyage scolaire qui vous correspond !</h1>
+
+        </header>
+    </section>
+
+    <section class="container inscription">
+        <article class="inscrivez">
+            <h2 class="text-center p-4">Inscrivez-vous</h2>
+
+            <div class=" text-center pb-4 mx-auto">
+                <p class=" mx-auto">
+                    Vous êtes <strong>instituteurs, professeurs, directeur d'établissements</strong> et recherchez à faire
+                    <strong>voyager vos élèves ou en recevoir</strong> ? Cette plateforme a été créée pour vous ! En mettant en
+                    relation des établissements à travers le monde, nous facilitons les démarches souvent lourdes et à la charge
+                    de l'enseignant. Ici vous avez tous les outils pour rechercher le voyage qui correspond à vos attentes.
+                </p>
+                <p class=" mx-auto"><span id="points"> ...</span>
+                    <button id="afficher" class="btn-voirplus">Afficher la suite</button><span class="masque">
+              Une seule étape pour accéder aux nombreuses fonctionnalités et avantages qu'offre cette plateforme : vous
+              inscrire en tant qu'enseignant, ou établissement. Vous pourrez dès lors communiquer avec les profils qui
+              vous intéressent, et créer le votre afin que le reste du monde puisse également connaître vos désirs de
+              voyages, d'échanges ou de récéption. </span> </p>
+                <p><strong><span class="masque"> N'hésitez plus, cliquez sur le lien juste en
+                dessous!</span></strong></p>
+
+                <button id="reduire"  class="btn-voirplus">Réduire</button>
+            </div>
+        </article>
+
+        <!--Bouton vers modal inscription-->
+        <a href="inscription.html" class="btn btn-form" id="btnInscription">Inscription</a>
+    </section>
+
+<section class="container-fluid bg-light">
+    <h2 class="text-center py-5">Actualités des échanges scolaires</h2>
+</section>
+{% endblock %}

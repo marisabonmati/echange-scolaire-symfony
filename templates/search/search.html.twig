@@ -1,0 +1,317 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="bg-title">
+            <nav class="container" aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a class="revenir-accueil" href="index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Recherches</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <h1 class="title-search pt-5 pb-5">Ton échange scolaire sur mesure</h1>
+            </div>
+        </section>
+        <!--AFFINER MA RECHERCHE-->
+        <section class="container">
+            <div id="myGroup">
+                <p class="mt-2">
+                    <a class="btn btn-form pb-1" data-toggle="collapse" href="#affinerMaRecherche" role="button"
+                       aria-expanded="false" aria-controls="affinerMaRecherche">Affiner ma recherche</a>
+                    <a class="btn btn-form pb-1" data-toggle="collapse" href="#trierPar" role="button"
+                       aria-expanded="false" aria-controls="trierPar">Trier par</a>
+                </p>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="collapse multi-collapse" id="affinerMaRecherche" data-parent="#myGroup">
+                            <div class="affinerDesktop d-none d-lg-block">
+                                <!--Affiner Desktop-->
+                                <div class="choix">
+                                    <label class="titleForm">Je cherche : </label>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="optionaccueil"
+                                               value="accueil">
+                                        <label class="ml-3" for="optionaccueil">Accueillir élèves</label>
+                                    </span>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="optionpartir"
+                                               value="partir">
+                                        <label class="ml-3" for="optionpartir">Partir en voyage</label>
+                                    </span>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="optionlesdeux"
+                                               value="les deux">
+                                        <label class="ml-3" for="optionlesdeux">Les deux</label>
+                                    </span>
+                                </div>
+                                <div class="langue my-3">
+                                    <label class="titleForm mr-2">Choisissez la langue du pays d'accueil</label>
+                                    <select class="select-css option-langue">
+                                        <option value="select">...</option>
+                                        <option value="français">Français</option>
+                                        <option value="espagnol">Español</option>
+                                        <option value="anglais">English</option>
+                                    </select>
+                                </div>
+                                <div class="pays my-3">
+                                    <label class="titleForm mr-2">Choisissez le pays</label>
+                                    <select class="select-css option-pays">
+                                        <option value="select">...</option>
+                                        <option value="france">France</option>
+                                        <option value="mayotte">Mayotte</option>
+                                        <option value="espagne">España</option>
+                                        <option value="ecuateur">Ecuador</option>
+                                        <option value="irlande">Ireland</option>
+                                        <option value="angleterre">England</option>
+                                    </select>
+                                </div>
+                                <div class="nombre-eleves my-3">
+                                    <label class="titleForm">Nombre d'élèves : </label>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="option30" value="30">
+                                        <label class="ml-3" for="option30">Moins de 30 élèves</label>
+                                    </span>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="option30-40"
+                                               value="30-40">
+                                        <label class="ml-3" for="option30-40">Entre 30 et 40 élèves</label>
+                                    </span>
+                                    <span class="input-group">
+                                        <input class="mt-1 input" type="radio" name="bac" id="option40" value="40">
+                                        <label class="ml-3" for="option40">Plus de 40 élèves</label>
+                                    </span>
+                                </div>
+                                <div class="niveau-eleves my-3">
+                                    <label class="titleForm">Niveau des élèves :</label>
+                                    <div class="input-niveau">
+                                        <label for="optioncollege">Collège</label>
+                                        <input class="ml-3" type="checkbox" id="optioncollege" value="college">
+                                    </div>
+                                    <div class="input-niveau">
+                                        <label for="optionlycee">Lycée</label>
+                                        <input class="ml-3" type="checkbox" id="optionlycee" value="lycee">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="affinerMobile d-block d-lg-none">
+                                <!--Affiner Mobile-->
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Je cherche</option>
+                                    <option value="1">Accueillir élèves</option>
+                                    <option value="2">Partir en voyage</option>
+                                    <option value="3">Les deux</option>
+                                </select>
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Choisissez la langue du pays d'accueil</option>
+                                    <option value="1">Français</option>
+                                    <option value="2">Español</option>
+                                    <option value="3">English</option>
+                                </select>
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Choisissez le pays d'accueil</option>
+                                    <option value="france">France</option>
+                                    <option value="mayotte">Mayotte</option>
+                                    <option value="espagne">España</option>
+                                    <option value="ecuateur">Ecuador</option>
+                                    <option value="irlande">Ireland</option>
+                                    <option value="angleterre">England</option>
+                                </select>
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Nombre d'élèves</option>
+                                    <option value="1">Moins de 30 élèves</option>
+                                    <option value="2">Entre 30 et 40 élèves</option>
+                                    <option value="3">Plus de 40 élèves</option>
+                                </select>
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Niveau des élèves</option>
+                                    <option value="1">Collège</option>
+                                    <option value="2">Lycée</option>
+                                    <option value="3">Collège et Lycée</option>
+                                </select>
+
+                            </div>
+
+                            <div class="mt-3"><input class="btn btn-form pb-1" type="submit" value="Submit"></div>
+
+                        </div>
+                    </div>
+                    <!--TRIER PAR-->
+                    <div class="col-sm-12 mb-5">
+                        <div class="collapse multi-collapse" id="trierPar" data-parent="#myGroup">
+                            <div class="trierDesktop d-none d-lg-block">
+                                <!--Desktop-->
+                                <span class="input-group">
+                                    <input class="mt-1 input" type="radio" name="bac" id="option1" value="1">
+                                    <label class="ml-3" for="option1">Nombre d'élèves</label>
+                                </span>
+                                <span class="input-group">
+                                    <input class="mt-1 input" type="radio" name="bac" id="option2" value="2">
+                                    <label class="ml-3" for="option2">Niveau d'élèves</label>
+                                </span>
+                                <span class="input-group">
+                                    <input class="mt-1 input" type="radio" name="bac" id="option3" value="3">
+                                    <label class="ml-3" for="option3">Mieux noté </label>
+                                </span>
+                            </div>
+
+                            <div class="trierMobile d-block d-lg-none">
+                                <!--Mobile-->
+                                <select class="select-css select-mobile custom-select">
+                                    <option selected>Trier par</option>
+                                    <option value="1">Nombre d'élèves</option>
+                                    <option value="2">Niveau des élèves</option>
+                                    <option value="3">Mieux noté</option>
+                                </select>
+
+                            </div>
+
+                            <div class="mt-3"><input class="btn btn-form pb-1" type="submit" value="Submit"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--ANNONCES CLICABLES DESKTOP-->
+        <section class="container d-none d-md-block">
+            <div class="row">
+                <div class="col-6 mb-4">
+                    <div class="card p-3">
+                        <img src="img/prof5.jpg" class="card-img-top" alt="image professeur">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Henri Boudreault</h4>
+                            <p class="card-text">Henri Boudreault Ph.D. professeur au collège Jean Mermoz, j'apporte des
+                                techniques agréables et efficaces,
+                                (originaire de Vosges-Alsace), et durant deux années...</p>
+                        </div>
+                        <a href="#" class="d-flex justify-content-center btn-voirplus">
+                            Afficher le profil
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card p-3">
+                        <img src="img/prof6.jpg" class="card-img-top" alt="image professeur">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Jérémy Dupont</h4>
+                            <p class="card-text">Jérémy Dupont professeur d'Anglais au collège La Tourelle, Polyglotte
+                                depuis 10 ans, avec ma méthodologie d'enseignement, attendez vous à des progrès
+                                redoutables.</p>
+                        </div>
+                        <a href="#" class="d-flex justify-content-center btn-voirplus">
+                            Afficher le profil
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card p-3">
+                        <img src="img/groupprof1.jpg" class="card-img-top" alt="groupe de personnnes">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Collège Stanislas</h4>
+                            <p class="card-text">Lorsqu’il s’agit d’apprendre un métier, nous faisons souvent référence
+                                à l’apprentissage « sur le tas ». Pour les langues, le même principe peut être appliqué.
+                                Il s’agit de vous mettre dans une situation concrète qui vous permet de placer une
+                                langue dans un contexte réel, facilitant ainsi l’apprentissage.</p>
+                        </div>
+                        <a href="#" class="d-flex justify-content-center btn-voirplus">
+                            Afficher le profil
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card p-3">
+                        <img src="img/groupprof2.jpg" class="card-img-top" alt="groupe de personnes">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Collège Fenelon</h4>
+                            <p class="card-text">La mobilité internationale et la maîtrise d'une ou de plusieurs langues
+                                européennes représentent un atout majeur sur le marché du travail et un réel
+                                enrichissement tant personnel que culturel
+                                pour les élèves. Séjourner dans un pays partenaire est un moyen privilégié ...</p>
+                        </div>
+                        <a href="#" class="d-flex justify-content-center btn-voirplus">
+                            Afficher le profil
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--PAGINATION-->
+            <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--fin pagination et annonces clicables desktop-->
+        </section>
+        <!--ANNONCES CLICABLES MOBILE-->
+        <div class="container d- block d-lg-none mb-4">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/prof5.jpg" class="d-block w-100" alt="établissement scolaire">
+                        <div class="carousel-caption d-md-block text-slider">
+                            <h5>Henri Boudreault</h5>
+                            <p>Henri Boudreault Ph.D. professeur au collège Jean Mermoz, j'apporte des
+                                techniques...</p>
+                            <button type="button" class="btn-slider btn-link">Afficher le profil</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/prof6.jpg" class="d-block w-100" alt="établissement scolaire">
+                        <div class="carousel-caption d-md-block text-slider">
+                            <h5>Jérémy Dupont</h5>
+                            <p>Jérémy Dupont professeur d'Anglais au collège La Tourelle, Polyglotte
+                                depuis 10 ans...</p>
+                            <button type="button" class="btn-slider btn-link">Afficher le profil</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/groupprof1.jpg" class="d-block w-100" alt="établissement scolaire">
+                        <div class="carousel-caption d-md-block text-slider">
+                            <h5>Lycée Stanislas</h5>
+                            <p>Lorsqu’il s’agit d’apprendre un métier, nous faisons souvent référence
+                                à l’apprentissage...</p>
+                            <button type="button" class="btn-slider btn-link">Afficher le profil</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/groupprof2.jpg" class="d-block w-100" alt="établissement scolaire">
+                        <div class="carousel-caption d-md-block text-slider">
+                            <h5>Collège Fenelon</h5>
+                            <p>La mobilité internationale et la maîtrise d'une ou de plusieurs langues
+                                européennes...</p>
+                            <button type="button" class="btn-slider btn-link">Afficher le profil</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

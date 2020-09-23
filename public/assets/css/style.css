@@ -1,0 +1,677 @@
+/*/////////////////////////////
+COMMUN
+//////////////////////////////*/
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;700&display=swap');
+
+body{
+    font-family: 'Biryani', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+*{
+    border-bottom: 0em;
+}
+
+a {
+    text-decoration: underline;
+}
+/*******************************
+CSS INFORMATIONS LÉGALES
+*******************************/
+
+.echange-scolaire{
+    color: #02C39A;
+}
+
+/*//////////////////////////////
+NAVBAR
+////////////////////////////////*/
+.siteName{
+    color: #02C39A;
+    text-align: left;
+    font-weight: 600;
+}
+
+.couleur{
+    color: #02C39A;
+}
+
+.logo{
+    width: 200px;
+}
+
+:hover.btn-nav{
+    background-color: #02C39A ;
+    border-radius: 5px;
+}
+
+#search{
+    max-width: 80%;
+}
+
+:hover.btn-nav, :hover.btn-form{
+    background-color: #02C39A ;
+    border-radius: 5px;
+}
+
+.btn-form{
+    text-decoration: none;
+    color: white;
+    background-color: #02C39A;
+    border-radius: 3px;
+}
+
+.titre{
+    background-color: rgb(233, 233, 233);
+    padding: 2%;
+}
+
+.conteneur{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/*******************************
+CSS Revenir Accueil et bg title
+*******************************/
+
+.revenir-accueil:hover{
+    text-decoration: none;
+    font-weight: bold;
+    color: #02C39A;
+}
+.title-search{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-top: 10%;
+}
+.bg-title{
+    background-image: url(../img/img1.jpg);
+    background-position-x: center;
+    height: 400px;
+}
+
+.title-annonce-desktop{
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+/*******************************
+CSS FORMULAIRE DESKTOP ET MOBILE
+*******************************/
+.btn-form{
+    color: white;
+    background-color: #02C39A;
+    border-radius: 3px;
+
+}
+
+.titleForm{
+    font-weight: bold;
+
+}
+
+/*PETIT SEARCH ACCUEIL ET SEARCH MOBILE*/
+.select-css {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.3;
+    padding: .4em 1.4em .3em .8em;
+    width: 200px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #02C39A;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+    border-radius: .3em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url(../img/arrow_down.png),
+    linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+.select-css::-ms-expand {
+    display: none;
+}
+.select-css:hover {
+    border-color: #02C39A;
+}
+.select-css:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px #02C39A;
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+.select-css option {
+    font-weight:normal;
+}
+
+.select-mobile{
+    width: -webkit-fill-available;
+}
+
+/*******************************
+SEARCH ANNONCES VERSION DESKTOP
+*******************************/
+
+.btn-voirplus{
+    text-decoration: none;
+    color: #02C39A;
+}
+
+.btn-voirplus:hover{
+    background-color:#02C39A ;
+    color: white;
+    border-radius: 3px;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.pagination{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.page-link{
+    text-decoration: none;
+    color: #02C39A;
+}
+
+/*******************************
+SEARCH ANNONCES SLIDER VERSION MOBILE
+*******************************/
+
+.btn-slider{
+    text-decoration: none;
+    color: #02C39A;
+    font-size: 0.9rem;
+    border: none;
+}
+.carousel-inner h5{
+    font-size: 1rem;
+}
+
+.couleur{
+    color: #02C39A;
+}
+
+/*/////////////////////////////
+ACCUEIL HEADER RECHERCHE
+////////////////////////////// */
+
+/*NAV*/
+h1{
+    padding: 30px 0 0 20px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.top{
+    background-image: url(../img/img1.jpg);
+    background-position: center;
+    background-size: contain;
+}
+
+#recherche form{
+    border-radius: 15px;
+    background-color: rgba(112, 128, 144, 0.7);
+    margin: 0 auto;
+}
+
+#btnRecherche{
+    display: block;
+    margin: 0 auto;
+    padding: 4% 15%;
+}
+
+/*COOKIES*/
+#cookiesConteneur{
+    bottom: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 25;
+    display: none;
+}
+
+#cookiesCon{
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 16px -4px #666666;
+    color: #333333;
+    font: 12px/1.5 Verdana;
+    margin: 0 auto;
+    padding: 0.5%;
+    text-align: center;
+    width: 60%;
+    height: 120px;
+    font-size: 1rem;
+}
+
+#cookiesCon a{
+    color: black;
+}
+
+#cookiesCon button{
+    background-color: #02C39A;
+    border-radius: 5px;
+    border-style: none;
+}
+
+#accepte{
+    padding: 10px 25px;
+}
+
+#savoirPlus{
+    padding: 10px;
+}
+
+/*/////////////////////////////
+ACCUEIL INSCRIPTION
+///////////////////////////////*/
+
+h2{
+    font-size: 2rem;
+}
+
+.inscrivez p{
+    width: 75%;
+    text-align: center;
+}
+
+#btnInscription{
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    font-size: 1.5rem;
+    width: 150px;
+}
+
+#afficher, #reduire{
+    display: none;
+    border: none;
+    background-color: white;
+}
+
+/*//////////////////////////////
+ACCUEIL  ACTUALITES
+///////////////////////////////*/
+#post3, #post4{
+    display: none;
+}
+
+#voirPlus{
+    font-size: 1.2rem;
+}
+
+#voirMoins{
+    display: none;
+    font-size: 1.2rem;
+}
+
+.btn-voirplus{
+    text-decoration: none;
+    color: #02C39A;
+}
+
+.btn-voirplus:hover{
+    background-color:#02C39A ;
+    color: white;
+    border-radius: 3px;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-slider{
+    text-decoration: none;
+    color: #02C39A;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/***********
+MESSAGERIE CONTACTS
+***********/
+.scroll{
+    height: 40rem;
+    overflow: auto;
+}
+
+.media img{
+    width: 15%;
+    border-radius: 10%;
+}
+
+.media{
+    border: 1px solid grey;
+}
+
+.media{
+    cursor: pointer;
+}
+
+.activeProfil{
+    background-color: #c9f8ee;
+}
+
+/*************
+MESSAGERIE MESSAGES
+*************/
+.messages, .messagesMob{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 234, 234);
+}
+
+.gauche{
+    width: 45%;
+    margin: 1%;
+}
+
+.droite{
+    width: 45%;
+    margin: 1%;
+    align-self: flex-end;
+    background-color: #c9f8ee;
+}
+
+.icone{
+    font-size: 2rem;
+    background-color: rgb(241, 234, 234);
+    color: #02C39A;
+    margin-bottom: 2%;
+    border: none;
+    display: inline-block;
+}
+
+textarea{
+    resize: none;
+    border-radius: 5px;
+}
+
+/***************
+FOOTER
+****************/
+footer hr{
+    width: 100%;
+}
+
+footer h3{
+    font-size: 1rem;
+}
+
+footer{
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+}
+
+.bas a, .bas a:hover, h6:hover{
+    color: #02C39A;
+}
+
+.cache{
+    display: none;
+}
+
+.page-footer{
+    border-top: 2.5px solid #02C39A;
+}
+
+.copyright{
+    text-decoration: none;
+    color: #02C39A;
+}
+
+/*///////////////////////////
+MEDIA QUERIES
+/////////////////////////////*/
+@media screen and (min-width: 320px){
+    #cookiesMobile{
+        top: 200px;
+        position: fixed;
+        z-index: 25;
+        display: none;
+    }
+
+    #cookiesMob{
+        background-color: white;
+        border: 1px solid #CCCCCC;
+        box-shadow: 0 0 16px -4px #666666;
+        color: #333333;
+        font: 12px/1.5 Verdana;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        width: 80%;
+        height: 400px;
+        font-size: 1.3rem;
+    }
+
+    #cookiesMob a{
+        color: black;
+    }
+
+    #cookiesMob button{
+        background-color: #02C39A;
+        border-radius: 5px;
+        border-style: none;
+        margin-top: 30px;
+    }
+
+    #accepteMob{
+        margin-top: 10px;
+        padding: 10px 25px;
+    }
+
+    #savoirPlusMob{
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #croix{
+        position: absolute;
+        top: 0px;
+        right: 40px;
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 576px){
+    #cookiesMob{
+        padding: 20px 0px;
+        line-height: 3rem;
+    }
+
+    .logo{
+        width: 225px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .top{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #cookiesCon{
+        display: none;
+    }
+
+    .mobile{
+        padding: 0px;
+    }
+
+    .bcg-profile{
+        background-color: rgba(226, 245, 231, 0.75);
+        color: #202325;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 768px){
+    #cookiesMob{
+        display: none;
+    }
+
+    #croix{
+        position: absolute;
+        top: 0px;
+        right: 50px;
+        font-size: 1.8rem;
+    }
+
+    footer{
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #cookiesCon{
+        font-size: 0.8rem;
+        width: 70%;
+    }
+
+    h1{
+        text-align: start;
+        padding: 20px 0 0 20px;
+        font-size: 2rem;
+    }
+
+    /*RECHERCHE*/
+    #recherche{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    #recherche form{
+        margin: 20px 0 0 50px;
+    }
+
+    /*INSCRIPTION*/
+    .inscrivez p{
+        width: 100%;
+        text-align: center;
+    }
+
+    #afficher{
+        display: block;
+        color: #02C39A;
+        border-radius: 5px;
+        margin: 5% auto;
+    }
+
+    .masque{
+        display: none;
+    }
+
+    /*ACTUALITES*/
+    #post3, #post4{
+        display: none;
+    }
+
+    /*FOOTER*/
+    footer{
+        line-height: 20px;
+    }
+
+    .carousel-inner p{
+        font-size: 0.8rem;
+    }
+    .text-slider{
+        background-color: rgba(226, 245, 231, 0.75);
+        font-weight: bold;
+        color: #202325;
+    }
+}
+
+@media screen and (max-width: 992px){
+    h1{
+        text-align: start;
+        padding: 20px 0 0 20px;
+        font-size: 2rem;
+    }
+
+    #recherche{
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #recherche form{
+        margin: 20px 0 0 70px;
+    }
+}
+/***********
+MESSAGERIE MOBILE
+***********/
+.mobile{
+    display: none;
+}
+
+/***********************
+MEDIA QUERIES
+***********************/
+@media screen and (max-width: 768px){
+    body{
+        font-size: 0.9rem;
+    }
+
+    h5{
+        font-size: 1.2rem;
+    }
+    .bg-title{
+        height: 100px;
+        background-position: center;
+    }
+
+    .lien{
+        background-color: #02C39A;
+    }
+
+    .mobile a{
+        color: black;
+        font-size: 1.5rem;
+    }
+
+    .mobile .nav-link{
+        border: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .desktop, h1, .messagerieMob{
+        display: none;
+    }
+
+    .scroll{
+        height: 25rem;
+        overflow: auto;
+    }
+
+    .contactMob img{
+        width: 15%;
+    }
+
+    .messagerieMob{
+        background-color: rgb(241, 234, 234);
+        padding: 1%;
+    }
+
+    .gauche, .droite{
+        width: 50%;
+        margin: 0;
+    }
+}
+
+
