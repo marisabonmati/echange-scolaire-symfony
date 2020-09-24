@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/echange-scolaire-symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/echange-scolaire-symfony.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Opinion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Opinion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +165,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600939015580">
+      <screen x="1280" y="-102" width="1920" height="1057" />
+    </state>
+    <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600939015580" />
     <state x="2116" y="530" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600854501427">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>

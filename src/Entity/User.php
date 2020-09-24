@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -108,6 +110,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $level;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Opinion::class, mappedBy="commentator")
+     */
+    private $opinions;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="userPost")
+     */
+    private $publications;
+
+    public function __construct()
+    {
+        $this->opinions = new ArrayCollection();
+        $this->publications = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -363,6 +381,68 @@ class User implements UserInterface
     public function setLevel(?string $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Opinion[]
+     */
+    public function getOpinions(): Collection
+    {
+        return $this->opinions;
+    }
+
+    public function addOpinion(Opinion $opinion): self
+    {
+        if (!$this->opinions->contains($opinion)) {
+            $this->opinions[] = $opinion;
+            $opinion->setCommentator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOpinion(Opinion $opinion): self
+    {
+        if ($this->opinions->contains($opinion)) {
+            $this->opinions->removeElement($opinion);
+            // set the owning side to null (unless already changed)
+            if ($opinion->getCommentator() === $this) {
+                $opinion->setCommentator(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Publication[]
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications[] = $publication;
+            $publication->setUserPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        if ($this->publications->contains($publication)) {
+            $this->publications->removeElement($publication);
+            // set the owning side to null (unless already changed)
+            if ($publication->getUserPost() === $this) {
+                $publication->setUserPost(null);
+            }
+        }
 
         return $this;
     }
