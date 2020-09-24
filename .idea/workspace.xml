@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DoctrineListeners/SlugListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,10 +184,14 @@
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state x="2116" y="530" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3440.1417@0.23.3440.1417" timestamp="1600854501427" />
-    <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600953135310">
+    <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600953610628">
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
-    <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600953135310" />
+    <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600953610628" />
+    <state x="1861" y="125" key="NewPhpClassDialog" timestamp="1600954099194">
+      <screen x="1280" y="-102" width="1920" height="1057" />
+    </state>
+    <state x="1861" y="125" key="NewPhpClassDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600954099194" />
     <state x="1963" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1600952514927">
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
