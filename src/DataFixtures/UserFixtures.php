@@ -45,7 +45,9 @@ class UserFixtures extends Fixture
             $user->setCapacity($faker->randomNumber([20, 30, 40]));
             $user->setLanguage($faker->randomElement(['anglais', 'français', 'español', 'italiano']));
             $user->setPhoto($faker->imageUrl($width=500, $height=400, 'people'));
-            $user->setDisponibilityDate($faker->dateTimeInInterval('0 years', '+5 years' ));
+            $datetimeStart = $faker->dateTimeBetween('0 years', '+2 years' );
+            $user->setDisponibilityDateStart($datetimeStart);
+            $user->setDisponibilityDateEnd($faker->dateTime($datetimeStart, '+2 years' ));
             $user->setLevel($faker->randomElement(['lycée', 'collège']));
             $user->setOptions($faker->randomElement(['échange', 'accueil', 'hôte']));
             $this->addReference('user' . $i, $user);

@@ -92,9 +92,14 @@ class User implements UserInterface
     private $options;
 
     /**
-     * @ORM\Column(type="dateinterval", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $disponibilityDate;
+    private $disponibilityDateStart;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $disponibilityDateEnd;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -307,7 +312,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDescriptionSecondary(): ?string
+    public function getDescriptionSecondary(string $text): ?string
     {
         return $this->descriptionSecondary;
     }
@@ -343,16 +348,36 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDisponibilityDate(): ?\DateInterval
+    /**
+     * @return mixed
+     */
+    public function getDisponibilityDateStart()
     {
-        return $this->disponibilityDate;
+        return $this->disponibilityDateStart;
     }
 
-    public function setDisponibilityDate(?\DateInterval $disponibilityDate): self
+    /**
+     * @param mixed $disponibilityDateStart
+     */
+    public function setDisponibilityDateStart($disponibilityDateStart): void
     {
-        $this->disponibilityDate = $disponibilityDate;
+        $this->disponibilityDateStart = $disponibilityDateStart;
+    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getDisponibilityDateEnd()
+    {
+        return $this->disponibilityDateEnd;
+    }
+
+    /**
+     * @param mixed $disponibilityDateEnd
+     */
+    public function setDisponibilityDateEnd($disponibilityDateEnd): void
+    {
+        $this->disponibilityDateEnd = $disponibilityDateEnd;
     }
 
     public function getCapacity(): ?int
