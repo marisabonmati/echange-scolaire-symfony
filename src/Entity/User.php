@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
 {
@@ -82,7 +82,7 @@ class User implements UserInterface
     private $descriptionSecondary;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $phone;
 
@@ -121,10 +121,16 @@ class User implements UserInterface
      */
     private $publications;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="userTag")
+     */
+    private $tags;
+
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
         $this->publications = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -318,7 +324,7 @@ class User implements UserInterface
         return $this->phone;
     }
 
-    public function setPhone(?int $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
@@ -442,6 +448,34 @@ class User implements UserInterface
             if ($publication->getUserPost() === $this) {
                 $publication->setUserPost(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+            $tag->addUserTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tags->contains($tag)) {
+            $this->tags->removeElement($tag);
+            $tag->removeUserTag($this);
         }
 
         return $this;
