@@ -22,4 +22,5 @@ class TagFixtures extends Fixture
 
         $manager->flush();
     }
+
 }

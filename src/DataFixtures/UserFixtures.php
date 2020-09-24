@@ -4,11 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements DependentFixtureInterface
 {
     const USER_COUNT = 20;
     private $encoder;
@@ -40,7 +41,7 @@ class UserFixtures extends Fixture
             $user->setCity($faker->city);
             $user->setCountry($faker->country);
             $user->setDescriptionProfil($faker->text);
-            $user->getDescriptionSecondary($faker->text);
+            $user->setDescriptionSecondary($faker->text);
             $user->setPhone($faker->phoneNumber);
             $user->setCapacity($faker->randomNumber([20, 30, 40]));
             $user->setLanguage($faker->randomElement(['anglais', 'français', 'español', 'italiano']));
@@ -50,9 +51,17 @@ class UserFixtures extends Fixture
             $user->setDisponibilityDateEnd($faker->dateTime($datetimeStart, '+2 years' ));
             $user->setLevel($faker->randomElement(['lycée', 'collège']));
             $user->setOptions($faker->randomElement(['échange', 'accueil', 'hôte']));
+            for ($j = 0; $j < random_int(0,5); $j++){
+                $user->addTag($this->getReference('tag' . random_int(0, TagFixtures::TAG_COUNT -1)));
+            }
             $this->addReference('user' . $i, $user);
             $manager->persist($user);
         }
         $manager->flush();
     }
+    public function getDependencies()
+    {
+        return [TagFixtures::class];
+    }
+
 }
