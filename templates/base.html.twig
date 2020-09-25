@@ -37,10 +37,11 @@
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex ml-lg-5">
-                        <a class="nav-link btn-nav" href="inscription.html">Connexion<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btn-nav" href="">Connexion<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item d-flex">
-                        <a class="nav-link btn-nav" data-toggle="modal" data-target="#exempleModal" href="{{ path ('app_register') }}">Inscription<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btn-nav" data-toggle="modal" data-target="{{ path('app_register') }}" href="#exempleModal">Inscription<span class="sr-only">(current)</span></a>
+                        {% include 'registration/register.html.twig' %}
                     </li>
                     <li class="nav-item dropdown ml-lg-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
