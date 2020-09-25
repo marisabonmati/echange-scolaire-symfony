@@ -1,7 +1,8 @@
 
 {{ form_start(registrationForm, {action: path('app_register')}) }}
+<div class="container">
 
-    <!-- Enseignant / Etablissement -->
+
     <div class="form-check">
         <fieldset class="form-group">
             <div class="row">
@@ -38,7 +39,7 @@
     <!--Mot de passe-->
     <div class="form-group">
         <label for="message-text" class="col-form-label">Mot de passe:</label>
-        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+        {{ form_row(registrationForm.plainPassword, {label:  'Mot de passe:'}) }}
     </div>
 
     <!-- J'ai lu et J'accepte les termes et conditions-->
@@ -48,4 +49,11 @@
             J'ai lu et j'accepte <a href="/mentionapropos.html#droits">les termes et conditions</a>
         </label>
     </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant</button>
+
+        <a href="" type="button" class="btn vert">S'inscrire</a>
+
+    </div>
+</div>
 {{ form_end(registrationForm) }}
