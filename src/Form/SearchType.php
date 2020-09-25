@@ -2,20 +2,21 @@
 
 namespace App\Form;
 
+use App\Repository\UserRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SearchType extends AbstractType
+class SearchType extends AbstractType 
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('country', ChoiceType::class, [
                 'choice_loader' =>  new CallbackChoiceLoader(function() {
-                    return StaticClass::getConstants();
+                    return UserRepository::getLanguages();
                 })
             ])
             ->add('sejour', ChoiceType::class, [
