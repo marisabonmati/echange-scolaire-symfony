@@ -1,0 +1,51 @@
+
+{{ form_start(registrationForm, {action: path('app_register')}) }}
+
+    <!-- Enseignant / Etablissement -->
+    <div class="form-check">
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-4 pt-0">Vous êtes :</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                               checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Enseignant
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Établissement
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!--NOM-->
+    <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Nom:</label>
+        {{ form_row(registrationForm.lastName) }}
+    </div>
+
+    <!--Adresse mail-->
+    <div class="form-group">
+        <label for="message-text" class="col-form-label">Adresse mail:</label>
+        {{ form_row(registrationForm.email) }}
+    </div>
+    <!--Mot de passe-->
+    <div class="form-group">
+        <label for="message-text" class="col-form-label">Mot de passe:</label>
+        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+    </div>
+
+    <!-- J'ai lu et J'accepte les termes et conditions-->
+    <div class="mt-5 text-center">
+        {{ form_row(registrationForm.agreeTerms) }}
+        <label class="form-check-label" for="invalidCheck3">
+            J'ai lu et j'accepte <a href="/mentionapropos.html#droits">les termes et conditions</a>
+        </label>
+    </div>
+{{ form_end(registrationForm) }}

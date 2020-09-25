@@ -7,77 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel">Inscription</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{ form_start(registrationForm) }}
-                <form>
-                    <!-- Enseignant / Etablissement -->
-                    <div class="form-check">
-                        <fieldset class="form-group">
-                            <div class="row">
-                                <legend class="col-form-label col-sm-4 pt-0">Vous êtes :</legend>
-                                <div class="col-sm-8">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                                               checked>
-                                        <label class="form-check-label" for="gridRadios1">
-                                            Enseignant
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                        <label class="form-check-label" for="gridRadios2">
-                                            Établissement
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <!--NOM-->
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nom:</label>
-                        {{ form_row(registrationForm.lastName) }}
-                    </div>
-
-                    <!--Adresse mail-->
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Adresse mail:</label>
-                        {{ form_row(registrationForm.email) }}
-                    </div>
-                    <!--Mot de passe-->
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Mot de passe:</label>
-                        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
-                    </div>
-
-                    <!-- J'ai lu et J'accepte les termes et conditions-->
-                    <div class="mt-5 text-center">
-                        {{ form_row(registrationForm.agreeTerms) }}
-                        <label class="form-check-label" for="invalidCheck3">
-                            J'ai lu et j'accepte <a href="/mentionapropos.html#droits">les termes et conditions</a>
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant</button>
-                <a href="#" type="button" class="btn vert">S'inscrire</a>
-                {{ form_end(registrationForm) }}
-            </div>
-        </div>
-    </div>
-</div>
-
+{% include 'inc/register-form.html.twig' %}
 
 
 

@@ -16,6 +16,7 @@
             <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         {% endblock %}
 
+
     </head>
     <body>
     <header class="bg-light">
@@ -40,8 +41,7 @@
                         <a class="nav-link btn-nav" href="">Connexion<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item d-flex">
-                        <a class="nav-link btn-nav" data-toggle="modal" data-target="{{ path('app_register') }}" href="#exempleModal">Inscription<span class="sr-only">(current)</span></a>
-                        {% include 'registration/register.html.twig' %}
+                        <a class="nav-link btn-nav" data-toggle="modal" data-target="#exampleModal" href="{{ path('app_register') }}">Inscription<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown ml-lg-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -58,6 +58,32 @@
             </div>
         </nav>
 
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">Inscription</h1>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% set registrationForm = form_service.registrationForm %}
+                        {% include 'inc/register-form.html.twig'  %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant</button>
+                        <a href="#" type="button" class="btn vert">S'inscrire</a>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--COOKIES DESKTOP-->
         <div id="cookiesConteneur">
@@ -90,8 +116,10 @@
             </div>
         </div>
     </header>
+
+
         {% block body %}{% endblock %}
-    {# {% block javascripts %}{% endblock %} #}
+
     <!-- FOOTER -->
     <footer class="page-footer font-small mdb-color pt-2">
         <div class="container text-center">

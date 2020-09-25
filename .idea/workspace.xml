@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/FormService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/register-form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,9 +188,10 @@
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
     <state x="1874" y="78" key="#Inspections/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952621326" />
-    <state x="2032" y="108" key="#com.intellij.ide.util.MemberChooser" timestamp="1600952162327">
-      <screen x="1280" y="-102" width="1920" height="1057" />
+    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser" timestamp="1601029731439">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029731439" />
     <state x="2032" y="108" key="#com.intellij.ide.util.MemberChooser/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952162327" />
     <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600951833938">
       <screen x="1280" y="-102" width="1920" height="1057" />
@@ -199,9 +205,10 @@
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
     <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1601022185498" />
-    <state x="1861" y="125" key="NewPhpClassDialog" timestamp="1600957173922">
-      <screen x="1280" y="-102" width="1920" height="1057" />
+    <state x="581" y="223" key="NewPhpClassDialog" timestamp="1601029637791">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="581" y="223" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029637791" />
     <state x="1861" y="125" key="NewPhpClassDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600957173922" />
     <state x="1963" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1600952514927">
       <screen x="1280" y="-102" width="1920" height="1057" />
