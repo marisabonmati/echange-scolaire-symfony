@@ -1,0 +1,16 @@
+<div class="row">
+    {% for user in list_users %}
+    <div class="col-6 mb-4">
+        <div class="card p-3">
+            <img src="{{ user.photo ? asset(user.photo) : 'https://place-hold.it/500x300' }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title text-center">{{ user.firstname }} {{ user.lastName }}</h4>
+               <p class="card-text">{{ user.descriptionProfil[:200] }}...</p>
+            </div>
+            <a href="{{ path('search', {id: user.id}) }}" class="d-flex justify-content-center btn-voirplus">
+                Afficher le profil
+            </a>
+        </div>
+    </div>
+   {% endfor %}
+</div>

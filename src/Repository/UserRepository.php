@@ -36,6 +36,41 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+    public function searchNav($q)
+    {
+        // delimiter avec un espace => Je vais à l'école => ["Je", "vais", "à", "l'école"]
+        // delimiter avec ' => ["Je vais à l" , "école"]
+        $explodedQ = explode(" ", $q);
+        // SELECT * FROM game as g WHERE g.title LIKE '%et%' OR g.title LIKE '%totam%'
+        $queryBuilder = $this->createQueryBuilder('u');// g est l'alias de notre table game
+
+
+        $i = 0;
+        foreach ($explodedQ as $word) {
+            $queryBuilder->orWhere('u.country LIKE :word' . $i);
+            $queryBuilder->setParameter('word' . $i, '%' . $word . '%'); // :word0 = '%et%'
+            $i++;
+        }
+
+  /*      foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column){
+            $i = 0;
+            foreach ($explodedQ as $word) {
+                $queryBuilder->orWhere('u.'.$column.' LIKE :word' .$i);
+                $queryBuilder->setParameter('word'.$i, '%'.$word.'%'); // :word0 = '%et%'
+                $i++;
+            }
+        }*/
+
+
+        return $queryBuilder->getQuery()->getResult();
+
+    }
+
+    public function getLanguages()
+    {
+        return [];
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

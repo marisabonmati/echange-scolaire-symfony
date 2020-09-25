@@ -180,22 +180,30 @@
         </section>
         <!--ANNONCES CLICABLES DESKTOP-->
         <section class="container d-none d-md-block">
-            <div class="row">
+
+            <h2>Résultat de la recherche "{{ search }}"</h2>
+            {%  include 'inc/_user_list.html.twig' with {list_users : results} %}
+            {# list_users vient de inc - results vient de SearchController #}
+
+
+
+
+
+
+          {#  <div class="row">
                 <div class="col-6 mb-4">
                     <div class="card p-3">
-                        <img src="img/prof5.jpg" class="card-img-top" alt="image professeur">
+                        <img src="{{ user.image ? asset(user.image) : 'https://place-hold.it/500x300' }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title text-center">Henri Boudreault</h4>
-                            <p class="card-text">Henri Boudreault Ph.D. professeur au collège Jean Mermoz, j'apporte des
-                                techniques agréables et efficaces,
-                                (originaire de Vosges-Alsace), et durant deux années...</p>
+                            <h4 class="card-title text-center">{{ user.firstname }} {{ user.last_name }}</h4>
+                            <p class="card-text">{{ user.description[:200] }}...</p>
                         </div>
-                        <a href="#" class="d-flex justify-content-center btn-voirplus">
+                        <a href="{{ path('user', {id: user.id}) }}" class="d-flex justify-content-center btn-voirplus">
                             Afficher le profil
                         </a>
                     </div>
                 </div>
-                <div class="col-6 mb-4">
+                 <div class="col-6 mb-4">
                     <div class="card p-3">
                         <img src="img/prof6.jpg" class="card-img-top" alt="image professeur">
                         <div class="card-body">
@@ -238,7 +246,7 @@
                             Afficher le profil
                         </a>
                     </div>
-                </div>
+                </div> #}
             </div>
 
             <!--PAGINATION-->
