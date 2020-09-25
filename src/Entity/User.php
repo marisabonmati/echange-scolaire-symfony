@@ -138,6 +138,11 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $entite;
+
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
@@ -521,6 +526,18 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getEntite(): ?string
+    {
+        return $this->entite;
+    }
+
+    public function setEntite(?string $entite): self
+    {
+        $this->entite = $entite;
 
         return $this;
     }
