@@ -22,7 +22,7 @@
     <header class="bg-light">
         <nav class="container navbar navbar-expand-lg navbar-light d-flex">
             <!--logo cliquable pour revenir sur la page d'accueil-->
-            <a class="mr-lg-5 navbar-brand" href="index.html">
+            <a class="mr-lg-5 navbar-brand" href="{{ path('home') }}">
                 <img class="logo" src="{{ asset('assets/img/logo.png') }}" alt="logo site echange-scolaire">
             </a>
 
@@ -38,7 +38,7 @@
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex ml-lg-5">
-                        <a class="nav-link btn-nav" href="">Connexion<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btn-nav" href="{{ path('home') }}">Connexion<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item d-flex">
                         <a class="nav-link btn-nav" data-toggle="modal" data-target="#exampleModal" href="{{ path('app_register') }}">Inscription<span class="sr-only">(current)</span></a>
@@ -48,10 +48,10 @@
                            aria-haspopup="true" aria-expanded="false">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="mentionsapropos.html#contacter">Contact</a>
-                            <a class="dropdown-item" href="mentionsapropos.html#nous">À Propos</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">Contact</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">À Propos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="mentionsapropos.html">Mentions Légales</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">Mentions Légales</a>
                         </div>
                     </li>
                 </ul>
@@ -124,10 +124,10 @@
                 <div class="col-12 col-md-4 bas mx-auto" id="info">
                     <h6 class="text-uppercase font-weight-bold pt-2">Mentions Légales</h6>
                     <div class="cache">
-                        <p><a href="mentionsapropos.html#cgu" class="couleur">CGU</a></p>
-                        <p><a href="mentionsapropos.html#politiqueconfidentialite" class="couleur">Politique de confidencialité</a></p>
-                        <p><a href="mentionsapropos.html#droits" class="couleur">Droits d'auteur et droits de reproduction</a></p>
-                        <p><a href="mentionsapropos.html#accessibilite" class="couleur">Accesibilité du site</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">CGU</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Politique de confidencialité</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Droits d'auteur et droits de reproduction</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Accesibilité du site</a></p>
                     </div>
                 </div>
 
@@ -137,9 +137,9 @@
                 <div class="col-12 col-md-4 bas">
                     <h6 class="text-uppercase font-weight-bold pt-2">À Propos</h6>
                     <div class="cache">
-                        <p><a href="mentionsapropos.html#nous" class="couleur">Qui sommes-nous ?</a></p>
-                        <p><a href="mentionsapropos.html#rejoignez" class="couleur">Nous rejoindre</a></p>
-                        <p><a href="mentionsapropos.html#contacter" class="couleur">Contactez-nous</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Qui sommes-nous ?</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Nous rejoindre</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Contactez-nous</a></p>
                     </div>
                 </div>
 
