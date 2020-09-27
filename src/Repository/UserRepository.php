@@ -66,14 +66,14 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     }
 
-    public function getLanguages()
+/*  public function getLanguages()
     {
         return $languages = $this->createQueryBuilder('u')
         ->addSelect('u.language')
         ->groupby('language')
         ->getQuery();
 
-    }
+    } */
     /*$query = $this->createQueryBuilder('q')
             ->select('userId, count(userId) as counter')
             ->groupby('userId')

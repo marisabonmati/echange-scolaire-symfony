@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
@@ -14,10 +15,14 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('country', ChoiceType::class, [
+    /*        ->add('country', ChoiceType::class, [
                 'choice_loader' =>  new CallbackChoiceLoader(function() {
                     return UserRepository::getLanguages();
                 })
+            ])*/
+            ->add('language', EntityType::class, [
+                    'class' => User::class,
+                    'choice_label'=> 'language'
             ])
             ->add('sejour', ChoiceType::class, [
                 'choices'=> [
@@ -26,8 +31,12 @@ class SearchType extends AbstractType
                     'Echange'
                 ]
             ])
-            ->add('entite', ChoiceType::class)
-        ;
+            ->add('entite', ChoiceType::class,[
+                'choices'=> [
+                    'Lycée',
+                    'Collège'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
