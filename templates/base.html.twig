@@ -16,12 +16,13 @@
             <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         {% endblock %}
 
+
     </head>
     <body>
     <header class="bg-light">
         <nav class="container navbar navbar-expand-lg navbar-light d-flex">
             <!--logo cliquable pour revenir sur la page d'accueil-->
-            <a class="mr-lg-5 navbar-brand" href="index.html">
+            <a class="mr-lg-5 navbar-brand" href="{{ path('home') }}">
                 <img class="logo" src="{{ asset('assets/img/logo.png') }}" alt="logo site echange-scolaire">
             </a>
 
@@ -35,28 +36,66 @@
                     <input class="form-control" type="text" name="search" id="search" placeholder="Rechercher" aria-label="Search">
                     <button class="btn btn-form"><i class="fas fa-search"></i></button>
                 </form>
+
+
                 <ul class="navbar-nav">
-                    <li class="nav-item d-flex ml-lg-5">
-                        <a class="nav-link btn-nav" href="inscription.html">Connexion<span class="sr-only">(current)</span></a>
-                    </li>
+                {% if app.user %}
+
                     <li class="nav-item d-flex">
-                        <a class="nav-link btn-nav" href="inscription.html">Inscription<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btn-nav" href="{{ path('app_logout') }}">Déconnexion<span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item d-flex ">
+                        <a class="nav-link btn-nav" href="{{ path('app_login') }}">Profil<span class="sr-only">(current)</span></a>
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item d-flex ">
+                        <a class="nav-link btn-nav" href="{{ path('app_login') }}">Connexion<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item d-flex">
+                        <a class="nav-link btn-nav" data-toggle="modal" data-target="#exampleModal" href="{{ path('app_register') }}">Inscription<span class="sr-only">(current)</span></a>
+                    </li>
+
+                {% endif %}
+
                     <li class="nav-item dropdown ml-lg-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="mentionsapropos.html#contacter">Contact</a>
-                            <a class="dropdown-item" href="mentionsapropos.html#nous">À Propos</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">Contact</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">À Propos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="mentionsapropos.html">Mentions Légales</a>
+                            <a class="dropdown-item" href="{{ path('mentions/a/propos') }}">Mentions Légales</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
 
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">Inscription</h1>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% set registrationForm = form_service.registrationForm %}
+                        {% include 'inc/register-form.html.twig'  %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--COOKIES DESKTOP-->
         <div id="cookiesConteneur">
@@ -89,8 +128,10 @@
             </div>
         </div>
     </header>
+
+
         {% block body %}{% endblock %}
-    {# {% block javascripts %}{% endblock %} #}
+
     <!-- FOOTER -->
     <footer class="page-footer font-small mdb-color pt-2">
         <div class="container text-center">
@@ -100,10 +141,10 @@
                 <div class="col-12 col-md-4 bas mx-auto" id="info">
                     <h6 class="text-uppercase font-weight-bold pt-2">Mentions Légales</h6>
                     <div class="cache">
-                        <p><a href="mentionsapropos.html#cgu" class="couleur">CGU</a></p>
-                        <p><a href="mentionsapropos.html#politiqueconfidentialite" class="couleur">Politique de confidencialité</a></p>
-                        <p><a href="mentionsapropos.html#droits" class="couleur">Droits d'auteur et droits de reproduction</a></p>
-                        <p><a href="mentionsapropos.html#accessibilite" class="couleur">Accesibilité du site</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">CGU</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Politique de confidencialité</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Droits d'auteur et droits de reproduction</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Accesibilité du site</a></p>
                     </div>
                 </div>
 
@@ -113,9 +154,9 @@
                 <div class="col-12 col-md-4 bas">
                     <h6 class="text-uppercase font-weight-bold pt-2">À Propos</h6>
                     <div class="cache">
-                        <p><a href="mentionsapropos.html#nous" class="couleur">Qui sommes-nous ?</a></p>
-                        <p><a href="mentionsapropos.html#rejoignez" class="couleur">Nous rejoindre</a></p>
-                        <p><a href="mentionsapropos.html#contacter" class="couleur">Contactez-nous</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Qui sommes-nous ?</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Nous rejoindre</a></p>
+                        <p><a href="{{ path('mentions/a/propos') }}" class="couleur">Contactez-nous</a></p>
                     </div>
                 </div>
 
