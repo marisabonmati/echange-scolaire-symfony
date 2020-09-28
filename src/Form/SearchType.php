@@ -14,30 +14,54 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SearchType extends AbstractType 
 {
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    /**
+     * SearchType constructor.
+     * @param UserRepository $userRepository
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-    /*        ->add('country', ChoiceType::class, [
+            ->add('country', ChoiceType::class, [
                 'choice_loader' =>  new CallbackChoiceLoader(function() {
-                    return UserRepository::getLanguages();
+                    $languages = $this->userRepository->getLanguages();
+                    $languagesAsArray = array_map(function($l){
+                        return $l['language'];
+                    }, $languages);
+                    // $languagesAsArray = ['anglais', 'français', 'suisse']
+                    // => [ 'Anglais' => 'anglais', 'Français' => 'français', 'Suisse' => 'suisse']
+                    $result = [];
+                    foreach($languagesAsArray as $language) {
+                        $result[ucfirst($language)] = $language;
+                    }
+                    return $result;
                 })
-            ])*/
+            ])
 
-            ->add('language', EntityType::class, [
+            /*->add('language', EntityType::class, [
                     'class' => User::class,
                     'choice_label'=> 'language'
-            ])
+            ])*/
             ->add('options', ChoiceType::class, [
                 'choices'=> [
-                    'Accueillir',
-                    'Voyage',
-                    'Echange'
+                    'Accueillir' => 'accueillir',
+                    'Voyage' => 'voyage',
+                    'Echange' => 'echange'
                 ]
             ])
             ->add('level', ChoiceType::class,[
                 'choices'=> [
-                    'Lycée',
-                    'Collège'
+                    'Lycée' => 'lycee',
+                    'Collège' => 'college'
                 ]
             ])
             ->add('submit', SubmitType::class, ['label' => 'Rechercher'])

@@ -42,13 +42,10 @@ class SearchController extends AbstractController
      */
     public function searchForm(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
     {
-        $search = new User();
-        $searchForm = $this->createForm(SearchType::class, $search);
+        $searchForm = $this->createForm(SearchType::class);
         //$searchForm->handleRequest($request);
-
         return $this->render('home/index.html.twig',[
             'search_form' => $searchForm->createView(),
-            'search' => $search
         ]);
     }
 
