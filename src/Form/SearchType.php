@@ -31,7 +31,7 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('country', ChoiceType::class, [
+            ->add('Langue', ChoiceType::class, [
                 'choice_loader' =>  new CallbackChoiceLoader(function() {
                     $languages = $this->userRepository->getLanguages();
                     $languagesAsArray = array_map(function($l){
@@ -51,20 +51,20 @@ class SearchType extends AbstractType
                     'class' => User::class,
                     'choice_label'=> 'language'
             ])*/
-            ->add('options', ChoiceType::class, [
+            ->add('Options', ChoiceType::class, [
                 'choices'=> [
                     'Accueillir' => 'accueillir',
                     'Voyage' => 'voyage',
                     'Echange' => 'echange'
                 ]
             ])
-            ->add('level', ChoiceType::class,[
+            ->add('Niveau', ChoiceType::class,[
                 'choices'=> [
                     'Lycée' => 'lycee',
                     'Collège' => 'college'
                 ]
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Rechercher'])
+            ->add('submit', SubmitType::class, ['label' => 'Valider'])
         ;
     }
 
