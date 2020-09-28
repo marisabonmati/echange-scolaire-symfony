@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/inc/register-form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/register-form.html.twig" afterDir="false" />
     </list>
@@ -172,7 +171,7 @@
       <updated>1600852642379</updated>
       <workItem from="1600852643540" duration="2324000" />
       <workItem from="1601020330127" duration="3831000" />
-      <workItem from="1601279329312" duration="5178000" />
+      <workItem from="1601279329312" duration="7907000" />
     </task>
     <servers />
   </component>
@@ -267,26 +266,20 @@
     </state>
     <state x="581" y="223" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029637791" />
     <state x="1861" y="125" key="NewPhpClassDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600957173922" />
+    <state x="332" y="148" width="1604" height="850" key="dock-window-1" timestamp="1601285318197">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="332" y="148" width="1604" height="850" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601285318197" />
     <state x="1963" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1600952514927">
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
     <state x="1963" y="184" key="refactoring.ChangeSignatureDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952514927" />
-    <state x="1905" y="102" width="670" height="633" key="search.everywhere.popup" timestamp="1601040046844">
-      <screen x="1280" y="-102" width="1920" height="989" />
+    <state x="625" y="215" width="672" height="666" key="search.everywhere.popup" timestamp="1601286230446">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="625" y="215" width="672" height="666" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601286230446" />
     <state x="1905" y="116" width="670" height="676" key="search.everywhere.popup/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600951975986" />
     <state x="1905" y="116" width="670" height="676" key="search.everywhere.popup/0.23.1280.713/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1601038945139" />
     <state x="1905" y="102" width="670" height="633" key="search.everywhere.popup/0.23.1280.777/1280.-102.1920.989@1280.-102.1920.989" timestamp="1601040046844" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/RegistrationController.php</url>
-          <line>40</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
