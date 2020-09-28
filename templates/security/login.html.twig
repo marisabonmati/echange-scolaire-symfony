@@ -3,36 +3,47 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
-
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+    <section class="bg-title">
+        <nav class="container" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a class="revenir-accueil" href="{{ path('home') }}">Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Connexion</li>
+            </ol>
+        </nav>
+        <div class="container">
+            <h1 class="text-center mb-4">Connexion</h1>
         </div>
+    </section>
 
-        <button class="btn btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+    <div class="container text-center my-5">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <label for="inputEmail">E-mail : </label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control w-50 mx-auto mb-3" required autofocus>
+
+            <label for="inputPassword">Mot de passe : </label>
+            <input type="password" name="password" id="inputPassword" class="form-control w-50 mx-auto mb-3" required>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                </label>
+            </div>
+
+            <button class="btn btn-form" type="submit">
+                Se connecter
+            </button>
+        </form>
+    </div>
 {% endblock %}
