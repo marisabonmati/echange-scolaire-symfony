@@ -16,25 +16,30 @@
 
     <div class="form-group  mx-auto">
         <label class="col-form-label ">Vous êtes : </label>
+        <div class="select-css w-25 mx-auto">
             {{ form_widget(registrationForm.entite) }}
             {{ form_errors(registrationForm.entite) }}
+        </div>
     </div>
     <!--NOM-->
     <div class="form-group">
         <label for="recipient-name" class="col-form-label">Nom:</label>
-        {{ form_widget(registrationForm.lastName) }}
-        {{ form_errors(registrationForm.lastName) }}
+        <input type="text" class="form-control w-25 mx-auto" id="recipient-name"
+            {{ form_widget(registrationForm.lastName) }}
+            {{ form_errors(registrationForm.lastName) }}
     </div>
 
     <!--Adresse mail-->
     <div class="form-group">
         <label for="message-text" class="col-form-label">Addresse mail:</label>
+        <input type="email" class="form-control w-25 mx-auto" id="message-text"
         {{ form_widget(registrationForm.email) }}
         {{ form_errors(registrationForm.email) }}
     </div>
     <!--Mot de passe-->
     <div class="form-group">
         <label for="message-text" class="col-form-label">Mot de passe:</label>
+        <input type="password" class="form-control w-25 mx-auto" id="recipient-name"
         {{ form_widget(registrationForm.plainPassword, {label:  'Mot de passe:'}) }}
         {{ form_errors(registrationForm.plainPassword) }}
     </div>
