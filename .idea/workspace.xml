@@ -23,8 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SearchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/SearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,9 +188,10 @@
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
     <state x="2116" y="530" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3440.1417@0.23.3440.1417" timestamp="1600854501427" />
-    <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600953610628">
-      <screen x="1280" y="-102" width="1920" height="1057" />
+    <state x="611" y="254" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601220971925">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="611" y="254" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1601220971925" />
     <state x="1978" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600953610628" />
     <state x="1861" y="125" key="NewPhpClassDialog" timestamp="1600957173922">
       <screen x="1280" y="-102" width="1920" height="1057" />
