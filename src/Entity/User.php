@@ -39,7 +39,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=50)
      */
     private $lastName;
 
@@ -139,7 +139,7 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=50)
      */
     private $entite;
 
