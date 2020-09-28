@@ -1,18 +1,23 @@
+<section class="bg-title">
+    <nav class="container" aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent">
+            <li class="breadcrumb-item"><a class="revenir-accueil" href="{{ path('home') }}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <h1 class="text-center mb-4">Inscription</h1>
+    </div>
+</section>
 
 {{ form_start(registrationForm, {action: path('app_register')}) }}
-<div class="container">
+<div class="container text-center my-5">
     {{ form_errors(registrationForm) }}
 
-    <div class="form-check">
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-4 pt-0">Vous êtes :</legend>
-                <div class="col-sm-8">
-                    {{ form_widget(registrationForm.entite) }}
-                    {{ form_errors(registrationForm.entite) }}
-                </div>
-            </div>
-        </fieldset>
+    <div class="form-group  mx-auto">
+        <label class="col-form-label ">Vous êtes : </label>
+            {{ form_widget(registrationForm.entite) }}
+            {{ form_errors(registrationForm.entite) }}
     </div>
     <!--NOM-->
     <div class="form-group">
@@ -43,10 +48,10 @@
             J'ai lu et j'accepte <a href="/mentionapropos.html#droits">les termes et conditions</a>
         </label>
     </div>
-    <div class="modal-footer">
+    <div class="my-5">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant</button>
 
-        <button type="submit">S'inscrire</button>
+        <button type="submit" class="btn btn-form ">S'inscrire</button>
     </div>
 </div>
 {{ form_end(registrationForm) }}
