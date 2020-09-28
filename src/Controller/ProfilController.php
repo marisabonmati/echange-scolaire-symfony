@@ -2,18 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/profil/{id}", name="profil")
      */
-    public function index()
+    public function index(User $user)
     {
         return $this->render('profil/profil.html.twig', [
-            'controller_name' => 'ProfilController',
+            'user' => $user,
         ]);
     }
 }

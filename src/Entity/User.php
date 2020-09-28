@@ -140,7 +140,7 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      * @NotNull()
      */
     private $entite;
@@ -326,7 +326,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDescriptionSecondary(string $text): ?string
+    public function getDescriptionSecondary(): ?string
     {
         return $this->descriptionSecondary;
     }
@@ -338,7 +338,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }

@@ -8,28 +8,24 @@
         <section class="bg-title">
             <nav class="container " aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent">
-                    <li class="breadcrumb-item"><a class="revenir-accueil" href="index.html">Accueil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Annonce - Enseignant</li>
+                    <li class="breadcrumb-item"><a class="revenir-accueil" href="{{ path('home') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profil</li>
                 </ol>
             </nav>
             <div class="container">
-                <h1 class="text-center mb-4">Henri Boudreault</h1>
+                <h1 class="text-center mb-4">{{ user.firstname }} {{ user.lastName }}</h1>
             </div>
         </section>
-        <!--Photo profil / Profil du professeur-->
+        <!--Photo profil-->
         <div class="container">
             <div class="row my-5">
                 <div class="col-12 col-lg-6">
-                    <img class="img1 mb-4 mx-3 mx-sm-0 " src="img/prof5.jpg" alt="Photo de Henri Boudreault">
+                    <img class="img1 mb-4 mx-3 mx-sm-0 " src="{{ user.photo }}" alt="Photo d'un enseignant ou un établissement'">
                 </div>
 
                 <!-- Envoyer un message / Ajouter au contact -->
                 <div class="col-12 col-lg-6 text-center mt-3 mt-lg-5">
-                    <p>Henri Boudreault professeur au collège Jean Mermoz, j'apporte des techniques agréables et efficaces,
-                        (originaire de Vosges-Alsace), 21
-                        ans en tant que professeur de collège et durant deux années professeur-assistant à l'université Humbolt de Berlin . Je
-                        suis convaincu que le plus important au moment d'apprendre une langue
-                        étrangère est l'immersion dans un pays qui parle cette lange.</p>
+                    <p>{{ user.descriptionProfil }}</p>
                     <button type="button" class="btn btn-lg vert btn-form" data-toggle="modal" data-target="#exampleModal"
                             data-whatever="@mdo">Ajouter contact</button>
                     <button type="button" class="btn btn-lg vert btn-form mt-3 mt-md-0" data-toggle="modal"
@@ -45,11 +41,11 @@
                 <div class="text-center">
                     <div class="row text-left mt-4 mb-4">
                         <div class="col-md-6 col-sm-12 pl-2">
-                            <p><i class="iconvsp fas fa-map-marker-alt colorIcon"></i> Paris, France.</p>
-                            <i class="iconvsp far fa-calendar-alt colorIcon"></i><label for="start"> Choisissez une date :</label>
-                            <input type="date" id="start" name="trip-start" value="2018-02-02" min="2018-01-01" max="2100-12-31">
-                            <p><i class="iconvsp fas fa-users colorIcon"></i>Capacité d'accueil : 20 élèves</p>
-                            <p><i class="iconvsp fas fa-phone colorIcon"></i> 07 85 25 69 52</p>
+                            <p><i class="mr-2 iconvsp fas fa-map-marker-alt colorIcon"></i>{{ user.city }}, {{ user.country }}.</p>
+                            <p><i class="mr-2 iconvsp far fa-calendar-alt colorIcon"></i>Choisissez une date :
+                            <input type="date" id="start" name="trip-start" value="2018-02-02" min="2018-01-01" max="2100-12-31"></p>
+                            <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>Capacite d'accueil : {{ user.capacity }}</p>
+                            <p><i class="mr-2 iconvsp fas fa-phone-alt colorIcon"> {{ user.phone }}</i></p>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="customSwitch1">
                                 <label class="custom-control-label" for="customSwitch1">Recherche
@@ -59,9 +55,7 @@
                         <!-- Ma classe -->
                         <div class="col-md-6 col-sm-12">
                             <h3 class="mt-3 mt-md-0 text-center">Ma classe</h3>
-                            <p> Professeur de langue allemande au collège JEAN MERMOZ depuis 2002 , j'ai deux classes de 5eme et
-                                trois classes de 4eme. Dans le parcours de l'apprentissage d'une langue étrangère l'immersion linguistique est un facteur clé.
-                            </p>
+                            <p> {{ user.descriptionSecondary }} </p>
                         </div>
                     </div>
                 </div>

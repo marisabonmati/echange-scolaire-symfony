@@ -21,10 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inc/register-form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/register-form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profil/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/profil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,10 +205,11 @@
     </state>
     <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029731439" />
     <state x="2032" y="108" key="#com.intellij.ide.util.MemberChooser/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952162327" />
-    <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600951833938">
+    <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601299355576">
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
     <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600951833938" />
+    <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.715/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1601299355576" />
     <state x="2116" y="530" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600854501427">
       <screen x="0" y="23" width="3440" height="1417" />
     </state>
