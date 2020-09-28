@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -67,7 +67,7 @@ class ProfilType extends AbstractType
                 'choices' => ['Anglais', 'Français', 'Espagnol'],
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
-            ->add('level', CheckboxType::class, [
+            ->add('level', CheckboxType::class, [ // ON EST LÀ, PB An error has occurred resolving the options of the form "Symfony\Component\Form\Extension\Core\Type\CheckboxType"
                 'mapped' => false,
                 'choices' => ['Lycée', 'Collège'],
                 'placeholder' => 'Choisissez une langue',
