@@ -76,6 +76,21 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getArrayResult();
 
     }
+
+    public function searchSelect($language, $options, $entite)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.language = :language')
+            ->andWhere('u.options = :options')
+            ->andWhere('u.entite = :entite')
+            ->setParameter('language', $language)
+            ->setParameter('options', $options)
+            ->setParameter('entite', $entite)
+            ->getQuery()
+            ->getResult()
+             ;
+
+    }
     /*$query = $this->createQueryBuilder('q')
             ->select('userId, count(userId) as counter')
             ->groupby('userId')

@@ -40,14 +40,35 @@ class SearchController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function searchForm(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
+    public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
     {
+
         $searchForm = $this->createForm(SearchType::class);
-        //$searchForm->handleRequest($request);
-        return $this->render('home/index.html.twig',[
+
+        return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
         ]);
     }
+
+    /**
+     * @Route("/search/form", name="search_form")
+     */
+    public function searchForm(Request $request, UserRepository $userRepository)
+    {
+        $searchForm = $this->createForm(SearchType::class);
+
+        $searchForm->handleRequest($request);
+
+        if($searchForm->isSubmitted() && $searchForm->isValid()) {
+            $data = $searchForm->getData();
+            $results = $userRepository->searchSelect($data['language'], $data['options'], $data['entite']);
+        }
+        return $this->render('search/search.html.twig', [
+            'results' => $results
+        ]);
+
+    }
+
 
 }
 
