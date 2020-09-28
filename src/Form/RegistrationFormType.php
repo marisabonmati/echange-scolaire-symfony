@@ -48,7 +48,7 @@ class RegistrationFormType extends AbstractType
             ->add('entite', ChoiceType::class, [
                 'required' => true,
                 'choices' => [
-                    'Selectionnez un choix' => 'selection',
+                    'Selectionnez un choix' => null,
                     'Enseignant' => 'enseignant',
                     'Etablissement' => 'etablissement',]
                     ])
