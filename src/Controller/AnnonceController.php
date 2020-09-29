@@ -13,7 +13,7 @@ class AnnonceController extends AbstractController
     public function index()
     {
         return $this->render('annonce/annonce.html.twig', [
-            'controller_name' => 'AnnonceController',
+            'userList' => $userList,
         ]);
     }
 }
