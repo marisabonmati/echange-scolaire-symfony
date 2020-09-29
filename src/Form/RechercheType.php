@@ -29,6 +29,7 @@ class RechercheType extends AbstractType
     {
         $builder
             ->add('Langue', ChoiceType::class, [
+                'label' => 'Sélectionnez la langue',
                 'choice_loader' =>  new CallbackChoiceLoader(function() {
                     $languages = $this->userRepository->getLanguages();
                     $languagesAsArray = array_map(function($l){
@@ -44,13 +45,15 @@ class RechercheType extends AbstractType
                 })
             ])
             ->add('Options', ChoiceType::class, [
+                'label' => 'Vous souhaitez',
                 'choices'=> [
-                    'Accueillir' => 'accueil',
-                    'Voyage' => 'voyage',
-                    'Echange' => 'échange'
+                    'Accueillir' => 'voyage',
+                    'Voyager' => 'accueil',
+                    'Echanger' => 'échange'
                 ]
             ])
             ->add('Entite', ChoiceType::class,[
+                'label' => 'Vous recherchez un',
                 'choices'=> [
                     'Enseignant' => 'enseignant',
                     'Etablissement' => 'etablissement'
