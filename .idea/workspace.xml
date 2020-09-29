@@ -21,15 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="05528a25-ef89-4f3c-81e3-f61a209ec064" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/PublicationFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PostFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfilType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfilType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PublicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/profil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +180,7 @@
       <workItem from="1601020330127" duration="3831000" />
       <workItem from="1601279329312" duration="9799000" />
       <workItem from="1601365830265" duration="2501000" />
-      <workItem from="1601381637059" duration="2705000" />
+      <workItem from="1601381637059" duration="3364000" />
     </task>
     <servers />
   </component>
