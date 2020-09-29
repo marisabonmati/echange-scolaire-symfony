@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Tag;
 use App\Entity\User;
-
 use App\Form\ProfilType;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -18,29 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil/{id}", name="profil")
-     */
-    public function index(User $user)
-    {
-
-        return $this->render('profil/profil.html.twig', [
-            'user' => $user,
-        ]);
-    }
-
-    /**
-     * @Route("/profil/edit/{id}", name="profil_edit")
+     * @Route("/profil/{id}", name="profil_edit")
      * @IsGranted("IS_AUTHENTICATED_FULLY")
-     * @Security("user === null or user.getUser() == user")
+     * @Security("user === null or modifiedUser == user")
      */
-    public function profilForm(Request $request, EntityManagerInterface $manager, User $user = null, Tag $tag)
+    public function profilForm(Request $request, EntityManagerInterface $manager, User $modifiedUser)
     {
 
-        if($user === null){
-            $user = new User();
-        }
-
-        $profilForm = $this->createForm(ProfilType::class, $user);
+        $profilForm = $this->createForm(ProfilType::class, $modifiedUser);
 
         $profilForm->handleRequest($request);
 
@@ -53,9 +35,7 @@ class ProfilController extends AbstractController
             $filename = md5(uniqid()). '.' . $photoFile->guessExtension();
             $photoFile->move('photo_user', $filename);
 
-            $user->setUser($this->getUser());
-
-            $manager->persist($user);
+            $manager->persist($modifiedUser);
             $manager->flush();
 
             return $this->redirectToRoute('user', ['id' => $this ->getUser() ->getId()] );
@@ -63,8 +43,7 @@ class ProfilController extends AbstractController
 
         return $this->render('profil/profil.html.twig', [
             'profilForm' => $profilForm->createView(),
-            'user' => $user,
-            'tag' => $tag,
+            'user' => $modifiedUser,
         ]);
     }
 }
