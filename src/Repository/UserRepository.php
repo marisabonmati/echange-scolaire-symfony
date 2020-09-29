@@ -76,6 +76,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getArrayResult();
 
     }
+    public function getCountry()
+    {
+        return $country = $this->createQueryBuilder('u')
+            ->select('u.country')
+            ->where('u.country IS NOT NULL')
+            ->groupBy('u.country')
+            ->getQuery()
+            ->getArrayResult();
+
+    }
 
     public function searchSelect($language, $options, $entite)
     {
@@ -91,40 +101,24 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
              ;
 
     }
-    /*$query = $this->createQueryBuilder('q')
-            ->select('userId, count(userId) as counter')
-            ->groupby('userId')
-            ->having('count(userId) >= 3')
-            ->getQuery();
 
-return $query->getResult();*/
-
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function AffinerRechercheSelect($language, $options, $level, $country, $capacity )
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('u.language = :language')
+            ->andWhere('u.options = :options')
+            ->andWhere('u.level = :level')
+            ->andWhere('u.country = :country')
+            ->andWhere('u.capacity = :capacity')
+            ->setParameter('language', $language)
+            ->setParameter('options', $options)
+            ->setParameter('level', $level)
+            ->setParameter('country', $country)
+            ->setParameter('capacity', $capacity)
             ->getQuery()
             ->getResult()
-        ;
-    }
-    */
+            ;
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
     }
-    */
+
 }

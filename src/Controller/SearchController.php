@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\AffinerRechercheType;
 use App\Form\RechercheType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,9 +54,9 @@ class SearchController extends AbstractController
     /**
      * @Route("/search/form", name="search_form")
      */
-    public function searchForm(Request $request, UserRepository $userRepository)
+    public function AffinerRechercheForm(Request $request, UserRepository $userRepository)
     {
-        $searchForm = $this->createForm(RechercheType::class);
+        $searchForm = $this->createForm(AffinerRechercheType::class);
 
         $searchForm->handleRequest($request);
 
@@ -68,7 +69,6 @@ class SearchController extends AbstractController
         ]);
 
     }
-
 
 }
 
