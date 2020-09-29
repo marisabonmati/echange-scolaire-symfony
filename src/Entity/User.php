@@ -325,7 +325,7 @@ class User implements UserInterface
     /**
      * @return File
      */
-    public function getPhotoFile(): File
+    public function getPhotoFile(): ?File
     {
         return $this->photoFile;
     }
@@ -333,7 +333,7 @@ class User implements UserInterface
     /**
      * @param File $photoFile
      */
-    public function setPhotoFile(File $photoFile): void
+    public function setPhotoFile(?File $photoFile): void
     {
         $this->photoFile = $photoFile;
     }

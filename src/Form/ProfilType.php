@@ -15,7 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -48,7 +47,7 @@ class ProfilType extends AbstractType
             ->add('cp', IntegerType::class, ['label' => 'Code postal : '])
             ->add('city', TextType::class, ['label' => 'Ville : '])
             ->add('country', TextType::class, ['label' => 'Pays : '])
-            ->add('photo', FileType::class, ['label' => 'Photo : '])
+            ->add('photoFile', FileType::class, ['label' => 'Photo : '])
             ->add('descriptionProfil', TextareaType::class, ['label' => 'Description profil : '])
             ->add('descriptionSecondary', TextareaType::class, ['label' => 'Description : '])
             ->add('phone', TextType::class, ['label' => 'Phone : '])
@@ -76,7 +75,6 @@ class ProfilType extends AbstractType
                 'placeholder' => 'Choisissez une entité',
                 'empty_data' => null,])
             ->add('tags', CollectionType::class, [
-                'entry_type' => TextType::class,
                 'allow_add' => true,
                 'allow_delete' => true])
         ;

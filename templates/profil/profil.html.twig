@@ -22,7 +22,8 @@
             <div class="row my-5">
                 <div class="col-12 col-lg-6">
                     <img class="img1 mb-4 mx-3 mx-sm-0 " src="{{ user.photo }}" alt="Photo d'un enseignant ou un établissement'">
-                    {{ form_row(profilForm) }}
+                    {{ form_widget(profilForm.photoFile) }}
+                    {{ form_errors(profilForm.photoFile) }}
                 </div>
 
                 <!-- Envoyer un message / Ajouter au contact -->
@@ -44,8 +45,15 @@
                     <div class="row text-left mt-4 mb-4">
                         <div class="col-md-6 col-sm-12 pl-2">
                             <p><i class="mr-2 iconvsp fas fa-map-marker-alt colorIcon"></i>{{ user.city }}, {{ user.country }}.</p>
+                            {{ form_widget(profilForm.country) }}
+                            {{ form_errors(profilForm.country) }}
                             <p><i class="mr-2 iconvsp far fa-calendar-alt colorIcon"></i>Choisissez une date :
                             <input type="date" id="start" name="trip-start" value="2018-02-02" min="2018-01-01" max="2100-12-31"></p>
+                            {{ form_widget(profilForm.disponibiltyDateStart) }}
+                            {{ form_errors(profilForm.disponibiltyDateStart) }}
+
+                            {{ form_widget(profilForm.disponibiltyDateEnd) }}
+                            {{ form_errors(profilForm.disponibiltyDateEnd) }}
                             <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>Capacite d'accueil : {{ user.capacity }}</p>
                             <p><i class="mr-2 iconvsp fas fa-phone-alt colorIcon"> {{ user.phone }}</i></p>
                             <div class="custom-control custom-switch">
@@ -215,4 +223,5 @@
             </div>
         </div>
     </main>
+    {{ form_end(profilForm) }}
 {% endblock %}
