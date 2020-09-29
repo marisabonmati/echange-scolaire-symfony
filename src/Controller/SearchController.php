@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\SearchType;
+use App\Form\RechercheType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +43,7 @@ class SearchController extends AbstractController
     public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
     {
 
-        $searchForm = $this->createForm(SearchType::class);
+        $searchForm = $this->createForm(RechercheType::class);
 
         return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
@@ -55,7 +55,7 @@ class SearchController extends AbstractController
      */
     public function searchForm(Request $request, UserRepository $userRepository)
     {
-        $searchForm = $this->createForm(SearchType::class);
+        $searchForm = $this->createForm(RechercheType::class);
 
         $searchForm->handleRequest($request);
 
