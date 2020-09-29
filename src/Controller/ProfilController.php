@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Tag;
 use App\Entity\User;
+
 use App\Form\ProfilType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -66,5 +67,4 @@ class ProfilController extends AbstractController
             'tag' => $tag,
         ]);
     }
-
 }
