@@ -67,8 +67,7 @@ class ProfilType extends AbstractType
                 'choices' => ['Anglais', 'Français', 'Espagnol'],
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
-            ->add('level', CheckboxType::class, [ // ON EST LÀ, PB An error has occurred resolving the options of the form "Symfony\Component\Form\Extension\Core\Type\CheckboxType"
-                'mapped' => false,
+            ->add('level', ChoiceType::class, [
                 'choices' => ['Lycée', 'Collège'],
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
@@ -77,7 +76,10 @@ class ProfilType extends AbstractType
                 'choices' => ['Établissement', 'Enseignant'],
                 'placeholder' => 'Choisissez une entité',
                 'empty_data' => null,])
-            ->add('tags', CollectionType::class, ['entry-type' => TextType::class, 'allow_add' => true, 'allow_delete' => true])
+            ->add('tags', CollectionType::class, [
+                'entry_type' => TextType::class,
+                'allow_add' => true,
+                'allow_delete' => true])
         ;
     }
 

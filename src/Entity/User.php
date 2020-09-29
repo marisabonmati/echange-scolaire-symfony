@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
@@ -73,6 +74,12 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photo;
+
+    /**
+     * @var File
+     * @Assert\Image(maxSize="8M", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/webp"})
+     */
+    private $photoFile;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -313,6 +320,23 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return File
+     */
+    public function getPhotoFile(): File
+    {
+        return $this->photoFile;
+    }
+
+    /**
+     * @param File $photoFile
+     */
+    public function setPhotoFile(File $photoFile): void
+    {
+        $this->photoFile = $photoFile;
+    }
+
 
     public function getDescriptionProfil(): ?string
     {

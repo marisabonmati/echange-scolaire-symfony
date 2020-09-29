@@ -22,6 +22,7 @@
     <list default="true" id="b691b9d3-248c-4bfd-9986-151b58510dff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ProfilType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfilType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profil/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/profil.html.twig" afterDir="false" />
     </list>
@@ -151,6 +152,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -173,6 +175,7 @@
       <workItem from="1600852643540" duration="2324000" />
       <workItem from="1601020330127" duration="3831000" />
       <workItem from="1601279329312" duration="9799000" />
+      <workItem from="1601365830265" duration="2501000" />
     </task>
     <servers />
   </component>
@@ -196,10 +199,10 @@
       <screen x="1280" y="-102" width="1920" height="1057" />
     </state>
     <state x="1874" y="78" key="#Inspections/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952621326" />
-    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser" timestamp="1601029731439">
+    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser" timestamp="1601367247878">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029731439" />
+    <state x="752" y="207" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601367247878" />
     <state x="2032" y="108" key="#com.intellij.ide.util.MemberChooser/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600952162327" />
     <state x="1881" y="-102" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601299355576">
       <screen x="1280" y="-102" width="1920" height="1057" />
@@ -269,6 +272,10 @@
     </state>
     <state x="581" y="223" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601029637791" />
     <state x="1861" y="125" key="NewPhpClassDialog/0.23.1280.710/1280.-102.1920.1057@1280.-102.1920.1057" timestamp="1600957173922" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1601366018158">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601366018158" />
     <state x="332" y="148" width="1604" height="850" key="dock-window-1" timestamp="1601285318197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
