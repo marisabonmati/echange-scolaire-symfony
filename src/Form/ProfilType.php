@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -69,14 +70,10 @@ class ProfilType extends AbstractType
                 'choices' => ['Lycée', 'Collège'],
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
-            ->add('entite', ChoiceType::class, [
-                'required' => true,
-                'choices' => ['Établissement', 'Enseignant'],
-                'placeholder' => 'Choisissez une entité',
-                'empty_data' => null,])
-            ->add('tags', CollectionType::class, [
+            ->add('tag', CollectionType::class, [
                 'allow_add' => true,
                 'allow_delete' => true])
+            ->add('submit', SubmitType::class, ['label' => 'Sauvgarder les informations'])
         ;
     }
 
