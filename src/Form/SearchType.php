@@ -53,15 +53,15 @@ class SearchType extends AbstractType
             ])*/
             ->add('Options', ChoiceType::class, [
                 'choices'=> [
-                    'Accueillir' => 'accueillir',
+                    'Accueillir' => 'accueil',
                     'Voyage' => 'voyage',
-                    'Echange' => 'echange'
+                    'Echange' => 'échange'
                 ]
             ])
-            ->add('Niveau', ChoiceType::class,[
+            ->add('Entite', ChoiceType::class,[
                 'choices'=> [
-                    'Lycée' => 'lycee',
-                    'Collège' => 'college'
+                    'Enseignant' => 'enseignant',
+                    'Etablissement' => 'etablissement'
                 ]
             ])
             ->add('submit', SubmitType::class, ['label' => 'Valider'])

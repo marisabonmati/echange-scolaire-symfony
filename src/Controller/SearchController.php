@@ -61,7 +61,7 @@ class SearchController extends AbstractController
 
         if($searchForm->isSubmitted() && $searchForm->isValid()) {
             $data = $searchForm->getData();
-            $results = $userRepository->searchSelect($data['Langue'], $data['Options'], $data['Niveau']);
+            $results = $userRepository->searchSelect($data['Langue'], $data['Options'], $data['Entite']);
         }
         return $this->render('search/search.html.twig', [
             'results' => $results
