@@ -14,7 +14,7 @@ class TagController extends AbstractController
      */
     public function apiTag(TagRepository $tagRepository)
     {
-        $tags = $tagRepository->findAll();
+        $tags = $tagRepository->find();
         $tagAsArray = array_map(function ($tag){
             return [
                 'name' => $tag->getName(),

@@ -86,7 +86,7 @@ class ProfilType extends AbstractType
                 'cache_timeout' => 60000, // if 'cache' is true
                 'language' => 'fr',
                 'placeholder' => 'Sélectionnez un tag',
-                'allow_add' => true,
+                'allow_add' => ['enabled'=>true],
                 // 'object_manager' => $objectManager, // inject a custom object / entity manager
             ])
             ->add('submit', SubmitType::class, ['label' => 'Sauvgarder les informations'])

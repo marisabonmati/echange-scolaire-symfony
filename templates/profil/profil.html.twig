@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
+{% endblock %}
 {% block title %}Profil{% endblock %}
 
 {% block body %}
@@ -288,4 +292,12 @@
         </div>
     </main>
     {{ form_end(profilForm) }}
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 {% endblock %}
