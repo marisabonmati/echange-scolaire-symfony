@@ -19,9 +19,10 @@ class TagController extends AbstractController
 
         $results = $tagRepository->apiTag($q);
 
-        $tagAsArray = array_map(function ($results){
+        $tagAsArray = array_map(function ($tag){
             return [
-                'results' => $results,
+                'text' => $tag->getName(),
+                'id' => $tag->getId(),
             ];
         }, $results);
 

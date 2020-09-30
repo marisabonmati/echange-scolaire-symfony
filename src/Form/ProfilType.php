@@ -105,7 +105,7 @@ class ProfilType extends AbstractType
                 'allow_add' => ['enabled'=>true],
                 // 'object_manager' => $objectManager, // inject a custom object / entity manager
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Sauvgarder les informations'])
+            ->add('submit', SubmitType::class, ['label' => 'Sauvegarder les informations'])
         ;
     }
 
