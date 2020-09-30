@@ -16,9 +16,64 @@
             </div>
         </section>
         <!--AFFINER RECHERCHE TWIG -->
-        {{ form(affiner_form, { attr: { class: 'p-3 text-center'}, action: path('search_form') }) }}
+       {#  {{ form(affiner_form, { attr: { class: 'p-3 text-center'}, action: path('search_form') }) }}#}
+        {{ form_start(affiner_form, {action: path('search_form')}) }}
+    <section class="container">
+        <div id="myGroup">
+                <p class="mt-2">
+                    <a class="btn btn-form pb-1" data-toggle="collapse" href="#affinerMaRecherche" role="button"
+                       aria-expanded="false" aria-controls="affinerMaRecherche">Affiner ma recherche</a>
+                </p>
+
+            <div class="row">
+                <div class="col-sm-12">
+                     <div class="collapse multi-collapse" id="affinerMaRecherche" data-parent="#myGroup">
+                         <div class="affinerDesktop d-none d-lg-block">
+                            <div class="choix">
+                        <label for="recipient-name" class="col-form-label font-weight-bold">Je cherche :</label>
+                        {{ form_widget(affiner_form.options, {attr: {class: 'w-50'}}) }}
+
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="recipient-name" class="col-form-label font-weight-bold">Choisissez la langue du pays d'accueil :</label>
+                                {{ form_widget(affiner_form.Langue, {attr: {class: 'form-control select-css w-30'}}) }}
+
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="recipient-name" class="col-form-label font-weight-bold">Choisissez le pays :</label>
+                                {{ form_widget(affiner_form.country, {attr: {class: 'form-control select-css w-30'}}) }}
+
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="recipient-name" class="col-form-label font-weight-bold">Nombre d'élèves :</label>
+                                {{ form_widget(affiner_form.capacity, {attr: {class: 'w-50'}}) }}
+
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="recipient-name" class="col-form-label font-weight-bold">Niveau des élèves :</label>
+                                {{ form_widget(affiner_form.level, {attr: {class: 'w-50'}}) }}
+
+                            </div>
+
+                            <div class="my-5">
+
+                                {{ form_widget(affiner_form.submit, {attr: {class: 'form-control w-50 mx-auto btn btn-form'}}) }}
+                                {# <button type="submit" class="btn btn-form ">Valider</button> #}
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        {{ form_end(affiner_form) }}
+
         <!--AFFINER MA RECHERCHE-->
-        <section class="container">
+    {#   <section class="container">
             <div id="myGroup">
                 <p class="mt-2">
                     <a class="btn btn-form pb-1" data-toggle="collapse" href="#affinerMaRecherche" role="button"
@@ -98,9 +153,9 @@
                                         <input class="ml-3" type="checkbox" id="optionlycee" value="lycee">
                                     </div>
                                 </div>
-                            </div>
+                            </div>#}
 
-                            <div class="affinerMobile d-block d-lg-none">
+  {#       <div class="affinerMobile d-block d-lg-none">
                                 <!--Affiner Mobile-->
                                 <select class="select-css select-mobile custom-select">
                                     <option selected>Je cherche</option>
@@ -141,8 +196,9 @@
                             <div class="mt-3"><input class="btn btn-form pb-1" type="submit" value="Submit"></div>
 
                         </div>
-                    </div>
-                    <!--TRIER PAR-->
+                    </div>#}
+                 {#  <!--TRIER PAR-->
+
                     <div class="col-sm-12 mb-5">
                         <div class="collapse multi-collapse" id="trierPar" data-parent="#myGroup">
                             <div class="trierDesktop d-none d-lg-block">
@@ -179,15 +235,20 @@
                 </div>
             </div>
 
-        </section>
+        </section>#}
         <!--ANNONCES CLICABLES DESKTOP-->
         <section class="container d-none d-md-block">
 
             {# <h2>Résultat de la recherche "{{ search }}"</h2>  #}
             {# {%  include 'inc/_user_list.html.twig' with {list_users : results} %}  #}
             {# list_users vient de inc - results vient de SearchController #}
-            {% include 'inc/_user_list.html.twig' with {list_users : results} %}
 
+        {#    {% include 'inc/_user_list.html.twig' with {list_users : results} %}#}
+            {% if results | length > 0 %}
+                {%include 'inc/_user_list.html.twig' with {list_users : results} %}
+            {% else %}
+                <p>Aucun résultat ne correspond à votre recherche</p>
+            {% endif %}
 
 
 

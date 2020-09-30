@@ -45,6 +45,7 @@ class SearchController extends AbstractController
             $data = $affinerForm->getData();
             $results = $userRepository->AffinerRechercheSelect($data['Langue'], $data['options'], $data['level'], $data['capacity'], $data['country']);
         }
+
         return $this->render('search/search.html.twig', [
             'results' => $results
         ]);

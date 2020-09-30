@@ -100,6 +100,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getResult()
              ;
 
+
     }
 
     public function AffinerRechercheSelect($language, $options, $level, $country, $capacity )
@@ -133,6 +134,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                     ->setParameter('capacity2', 30);
 
                 break;
+
         }
         return $queryBuilder->getQuery()->getResult();
 
