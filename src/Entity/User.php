@@ -124,7 +124,7 @@ class User implements UserInterface
     private $language;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="json", length=30, nullable=true)
      */
     private $level;
 
@@ -393,7 +393,7 @@ class User implements UserInterface
      */
     public function getDisponibilityDateStart()
     {
-        return $this->disponibilityDateStart;
+        return $this->disponibilityDateStart = new \DateTime('now');
     }
 
     /**
@@ -409,7 +409,7 @@ class User implements UserInterface
      */
     public function getDisponibilityDateEnd()
     {
-        return $this->disponibilityDateEnd;
+        return $this->disponibilityDateEnd = new \DateTime('now');
     }
 
     /**
@@ -444,12 +444,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getLevel(): ?string
+    public function getLevel(): ?array
     {
         return $this->level;
     }
 
-    public function setLevel(?string $level): self
+    public function setLevel(?array $level): self
     {
         $this->level = $level;
 

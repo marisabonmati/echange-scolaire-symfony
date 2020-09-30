@@ -32,11 +32,12 @@ class ProfilController extends AbstractController
              * @var UploadedFile $photoFile
              */
 
-            $photoFile = $profilForm->get('photo')->getData();
+            $photoFile = $profilForm->get('photoFile')->getData();
 
             if ($photoFile !== null) {
                 $filename = md5(uniqid()) . '.' . $photoFile->guessExtension();
                 $photoFile->move('photo_user', $filename);
+                $modifiedUser->setPhoto('photo_user/'.$filename);
             }
 
             $manager->persist($modifiedUser);

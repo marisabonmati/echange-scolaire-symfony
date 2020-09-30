@@ -27,20 +27,19 @@ class ProfilType extends AbstractType
     {
 
         $options = [
-            'Echange' => 'echange',
-            'Hôte' => 'hote',
-            'Voyage' => 'voyage',
+            'Echange' => 'Échange',
+            'Hôte' => 'Hôte',
+            'Voyage' => 'Voyage',
         ];
         $languages = [
-            'Français' => 'français',
-            'Anglais' => 'anglais',
-            'Espagnol' => 'espagnol',
+            'Français' => 'Français',
+            'Anglais' => 'Anglais',
+            'Espagnol' => 'Espagnol',
         ];
         $level = [
-            'Lycée' => 'lycee',
-            'Collège' => 'college',
+            'Lycée' => 'Lycée',
+            'Collège' => 'Collège',
         ];
-        $datestart = 'disponibilityDateStart';
 
         $builder
             ->add('email', EmailType::class, ['label' => 'E-mail'])
@@ -66,7 +65,7 @@ class ProfilType extends AbstractType
             ->add('cp', IntegerType::class, ['label' => 'Code postal : '])
             ->add('city', TextType::class, ['label' => 'Ville : '])
             ->add('country', TextType::class, ['label' => 'Pays : '])
-            ->add('photo', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
+            ->add('photoFile', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
             ->add('descriptionProfil', TextareaType::class, ['label' => 'Description profil : '])
             ->add('descriptionSecondary', TextareaType::class, ['label' => 'Description : '])
             ->add('phone', TextType::class, ['label' => 'Phone : '])
@@ -77,7 +76,7 @@ class ProfilType extends AbstractType
                 'empty_data' => null,
             ])
             ->add('disponibilityDateStart', DateType::class, ['label' => 'Date de début : '])
-            ->add('disponibilityDateEnd', DateType::class, ['label' => 'Date de fin : ', 'years' => range($datestart, 2022)])
+            ->add('disponibilityDateEnd', DateType::class, ['label' => 'Date de fin : '])
             ->add('capacity', IntegerType::class, ['label' => 'Capacité d\'accueil : '])
             ->add('language', ChoiceType::class, [
                 'required' => true,
@@ -86,6 +85,8 @@ class ProfilType extends AbstractType
                 'empty_data' => null,])
             ->add('level', ChoiceType::class, [
                 'choices' => $level,
+                'multiple' => true,
+                'expanded' => true,
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
             ->add('tags', Select2EntityType::class, [
