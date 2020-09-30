@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Tag;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,6 +19,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Tetranz\Select2EntityBundle\Form\Type\Select2EntityType;
 
 class ProfilType extends AbstractType
 {
@@ -70,9 +72,23 @@ class ProfilType extends AbstractType
                 'choices' => ['Lycée', 'Collège'],
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
-            ->add('tag', CollectionType::class, [
+            ->add('tags', Select2EntityType::class, [
+                'multiple' => true,
+                'remote_route' => 'api_tag',
+                'class' => Tag::class,
+                'primary_key' => 'id',
+                'text_property' => 'name',
+                'minimum_input_length' => 2,
+                'page_limit' => 10,
+                'allow_clear' => true,
+                'delay' => 250,
+                'cache' => false,
+                'cache_timeout' => 60000, // if 'cache' is true
+                'language' => 'fr',
+                'placeholder' => 'Sélectionnez un tag',
                 'allow_add' => true,
-                'allow_delete' => true])
+                // 'object_manager' => $objectManager, // inject a custom object / entity manager
+            ])
             ->add('submit', SubmitType::class, ['label' => 'Sauvgarder les informations'])
         ;
     }
