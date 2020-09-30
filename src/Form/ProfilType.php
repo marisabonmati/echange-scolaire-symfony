@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -27,18 +26,18 @@ class ProfilType extends AbstractType
     {
 
         $options = [
-            'Echange' => 'Échange',
-            'Hôte' => 'Hôte',
+            'Echange' => 'Echange',
+            'Hôte' => 'Hote',
             'Voyage' => 'Voyage',
         ];
         $languages = [
-            'Français' => 'Français',
+            'Français' => 'Francais',
             'Anglais' => 'Anglais',
             'Espagnol' => 'Espagnol',
         ];
         $level = [
-            'Lycée' => 'Lycée',
-            'Collège' => 'Collège',
+            'Lycée' => 'Lycee',
+            'Collège' => 'College',
         ];
 
         $builder
@@ -65,7 +64,7 @@ class ProfilType extends AbstractType
             ->add('cp', IntegerType::class, ['label' => 'Code postal : '])
             ->add('city', TextType::class, ['label' => 'Ville : '])
             ->add('country', TextType::class, ['label' => 'Pays : '])
-            ->add('photoFile', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
+            ->add('photoFile', FileType::class, ['label' => true, 'mapped' => false])
             ->add('descriptionProfil', TextareaType::class, ['label' => 'Description profil : '])
             ->add('descriptionSecondary', TextareaType::class, ['label' => 'Description : '])
             ->add('phone', TextType::class, ['label' => 'Phone : '])
@@ -81,13 +80,15 @@ class ProfilType extends AbstractType
             ->add('language', ChoiceType::class, [
                 'required' => true,
                 'choices' => $languages,
+                'multiple' => true,
+                'expanded' => true,
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
             ->add('level', ChoiceType::class, [
                 'choices' => $level,
                 'multiple' => true,
                 'expanded' => true,
-                'placeholder' => 'Choisissez une langue',
+                'placeholder' => 'Choisissez votre niveau',
                 'empty_data' => null,])
             ->add('tags', Select2EntityType::class, [
                 'multiple' => true,

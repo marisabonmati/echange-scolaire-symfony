@@ -32,9 +32,10 @@
                             <img src="{{ asset(user.photo) }}" class="w-100" alt="">
                         {% endif %}
 
-                        {{ form_widget(profilForm.photoFile) }}
+                    <div class="py-2">
+                        {{ form_widget(profilForm.photoFile, { attr : {label: 'Parcourir'}}) }}
                         {{ form_errors(profilForm.photoFile) }}
-
+                    </div>
                     </div>
 
                     <!--Description profil -->
@@ -110,7 +111,7 @@
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Langue enseignée :
+                                <p> Langues enseignées :
                                     {{ form_widget(profilForm.language) }}
                                     {{ form_errors(profilForm.language) }}
                                 </p>
@@ -122,8 +123,8 @@
                                 </p>
                                 <hr class="my-4">
 
-                                <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>Capacite d'accueil
-                                    : {{ form_widget(profilForm.capacity) }}
+                                <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>Capacite d'accueil :
+                                    {{ form_widget(profilForm.capacity) }}
                                     {{ form_errors(profilForm.capacity) }}
                                 </p>
                             </fieldset>
