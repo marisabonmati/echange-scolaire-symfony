@@ -12,11 +12,10 @@ class AnnonceController extends AbstractController
     /**
      * @Route("/annonce/{id}", name="annonce")
      */
-    public function index(User $user, Tag  $tag)
+    public function index(User $user)
     {
         return $this->render('annonce/annonce.html.twig', [
             'user' => $user,
-            'tag' => $tag,
         ]);
     }
 }

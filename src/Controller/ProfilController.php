@@ -32,7 +32,7 @@ class ProfilController extends AbstractController
              * @var UploadedFile $photoFile
              */
 
-            $photoFile = $profilForm->get('photoFile')->getData();
+            $photoFile = $profilForm->get('photo')->getData();
 
             if ($photoFile !== null) {
                 $filename = md5(uniqid()) . '.' . $photoFile->guessExtension();

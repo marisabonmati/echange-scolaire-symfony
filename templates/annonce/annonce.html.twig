@@ -22,8 +22,9 @@
         <div class="container">
             <div class="row my-5">
                 <div class="col-12 col-lg-6">
-                    <img class="img1 mb-4 mx-3 mx-sm-0 " src="{{ user.photo }}" alt="Photo d'un enseignant ou un établissement'">
-
+                    {% if user.photo %}
+                    <img class="img1 mb-4 mx-3 mx-sm-0 " src="{{ asset(user.photo) }}" alt="Photo d'un enseignant ou un établissement'">
+                    {% endif %}
                 </div>
 
                 <!-- Envoyer un message / Ajouter au contact -->
@@ -51,11 +52,7 @@
 
                             <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>Capacite d'accueil : {{ user.capacity }}</p>
                             <p><i class="mr-2 iconvsp fas fa-phone-alt colorIcon"> {{ user.phone }}</i></p>
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                                <label class="custom-control-label" for="customSwitch1">Recherche
-                                    d'échange</label>
-                            </div>
+
                         </div>
                         <!-- Ma classe -->
                         <div class="col-md-6 col-sm-12">

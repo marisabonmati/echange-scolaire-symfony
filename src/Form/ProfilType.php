@@ -66,7 +66,7 @@ class ProfilType extends AbstractType
             ->add('cp', IntegerType::class, ['label' => 'Code postal : '])
             ->add('city', TextType::class, ['label' => 'Ville : '])
             ->add('country', TextType::class, ['label' => 'Pays : '])
-            ->add('photoFile', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
+            ->add('photo', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
             ->add('descriptionProfil', TextareaType::class, ['label' => 'Description profil : '])
             ->add('descriptionSecondary', TextareaType::class, ['label' => 'Description : '])
             ->add('phone', TextType::class, ['label' => 'Phone : '])
