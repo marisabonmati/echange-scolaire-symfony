@@ -48,6 +48,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     *
      */
     private $firstname;
 
@@ -138,7 +139,7 @@ class User implements UserInterface
     private $publications;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="userTag")
+     * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="userTag", cascade={"persist"})
      */
     private $tags;
 
@@ -243,7 +244,7 @@ class User implements UserInterface
         return $this->lastName;
     }
 
-    public function setLastName(string $lastName): self
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
 

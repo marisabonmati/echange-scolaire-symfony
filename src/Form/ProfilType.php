@@ -60,13 +60,13 @@ class ProfilType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('lastName', TextType::class, ['label' => 'Nom : '])
+            ->add('lastName', TextType::class, ['label' => 'Nom : ', 'required' => true])
             ->add('firstname', TextType::class, ['label' => 'Prénom : '])
             ->add('adress', TextType::class, ['label' => 'Adresse : '])
             ->add('cp', IntegerType::class, ['label' => 'Code postal : '])
             ->add('city', TextType::class, ['label' => 'Ville : '])
             ->add('country', TextType::class, ['label' => 'Pays : '])
-            ->add('photoFile', FileType::class, ['label' => 'Photo : '])
+            ->add('photoFile', FileType::class, ['label' => 'Photo : ', 'mapped' => false])
             ->add('descriptionProfil', TextareaType::class, ['label' => 'Description profil : '])
             ->add('descriptionSecondary', TextareaType::class, ['label' => 'Description : '])
             ->add('phone', TextType::class, ['label' => 'Phone : '])
@@ -102,7 +102,11 @@ class ProfilType extends AbstractType
                 'cache_timeout' => 60000, // if 'cache' is true
                 'language' => 'fr',
                 'placeholder' => 'Sélectionnez un tag',
-                'allow_add' => ['enabled'=>true],
+                'allow_add' => [
+                    'enabled' => true,
+                    'new_tag_text' => ' (Nouveau)',
+                    'new_tag_prefix' => '__',
+                    'tag_separators' => '[",", " "]'],
                 // 'object_manager' => $objectManager, // inject a custom object / entity manager
             ])
             ->add('submit', SubmitType::class, ['label' => 'Sauvegarder les informations'])
@@ -112,6 +116,7 @@ class ProfilType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'required' => false,
             'data_class' => User::class,
         ]);
     }

@@ -27,18 +27,21 @@ class ProfilController extends AbstractController
         $profilForm->handleRequest($request);
 
         if($profilForm->isSubmitted() && $profilForm->isValid()){
+
             /**
              * @var UploadedFile $photoFile
              */
 
             $photoFile = $profilForm->get('photoFile')->getData();
-            $filename = md5(uniqid()). '.' . $photoFile->guessExtension();
-            $photoFile->move('photo_user', $filename);
+
+            if ($photoFile !== null) {
+                $filename = md5(uniqid()) . '.' . $photoFile->guessExtension();
+                $photoFile->move('photo_user', $filename);
+            }
 
             $manager->persist($modifiedUser);
             $manager->flush();
 
-            return $this->redirectToRoute('user', ['id' => $this ->getUser() ->getId()] );
         }
 
         return $this->render('profil/profil.html.twig', [
