@@ -25,7 +25,23 @@ class ProfilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $options = [
+            'Echange' => 'echange',
+            'Hôte' => 'hote',
+            'Voyage' => 'voyage',
+        ];
+        $languages = [
+            'Français' => 'français',
+            'Anglais' => 'anglais',
+            'Espagnol' => 'espagnol',
+        ];
+        $level = [
+            'Lycée' => 'lycee',
+            'Collège' => 'college',
+        ];
         $datestart = 'disponibilityDateStart';
+
         $builder
             ->add('email', EmailType::class, ['label' => 'E-mail'])
             ->add('plainPassword', PasswordType::class, [
@@ -56,7 +72,7 @@ class ProfilType extends AbstractType
             ->add('phone', TextType::class, ['label' => 'Phone : '])
             ->add('options', ChoiceType::class, [
                 'required' => true,
-                'choices' => ['Échange', 'Voyages', 'Hôte'],
+                'choices' => $options,
                 'placeholder' => 'Choisissez une option',
                 'empty_data' => null,
             ])
@@ -65,11 +81,11 @@ class ProfilType extends AbstractType
             ->add('capacity', IntegerType::class, ['label' => 'Capacité d\'accueil : '])
             ->add('language', ChoiceType::class, [
                 'required' => true,
-                'choices' => ['Anglais', 'Français', 'Espagnol'],
+                'choices' => $languages,
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
             ->add('level', ChoiceType::class, [
-                'choices' => ['Lycée', 'Collège'],
+                'choices' => $level,
                 'placeholder' => 'Choisissez une langue',
                 'empty_data' => null,])
             ->add('tags', Select2EntityType::class, [
