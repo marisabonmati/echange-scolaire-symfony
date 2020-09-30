@@ -13,56 +13,37 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
 {
-    /**
-     * @Route("/search", name="search")
-     */
-    public function index()
-    {
-        return $this->render('search/search.html.twig', [
-            'controller_name' => 'SearchController',
-        ]);
-    }
+
 
     /**
-     * @Route("/search", name="search")
+     * @Route("/search/nav", name="search_nav")
      */
     public function searchNav(Request $request, UserRepository $userRepository)
     {
+        $affinerForm = $this->createForm(AffinerRechercheType::class);
        $q = $request->get('search');
       //dd($q);
         $results = $userRepository->searchNav($q);
 
         return $this->render('search/search.html.twig', [
             'search' => $q,
-            'results' => $results
+            'results' => $results,
+            'affiner_form' => $affinerForm->createView()
         ]);
     }
 
     /**
-     * @Route("/home", name="home")
-     */
-    public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
-    {
-
-        $searchForm = $this->createForm(RechercheType::class);
-
-        return $this->render('home/index.html.twig', [
-            'search_form' => $searchForm->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/search/form", name="search_form")
+     * @Route("/search/affiner", name="search_affiner")
      */
     public function AffinerRechercheForm(Request $request, UserRepository $userRepository)
     {
-        $searchForm = $this->createForm(AffinerRechercheType::class);
+        $affinerForm = $this->createForm(AffinerRechercheType::class);
 
-        $searchForm->handleRequest($request);
+        $affinerForm->handleRequest($request);
 
-        if($searchForm->isSubmitted() && $searchForm->isValid()) {
-            $data = $searchForm->getData();
-            $results = $userRepository->searchSelect($data['Langue'], $data['Options'], $data['Entite']);
+        if($affinerForm->isSubmitted() && $affinerForm->isValid()) {
+            $data = $affinerForm->getData();
+            $results = $userRepository->AffinerRechercheSelect($data['Langue'], $data['options'], $data['level'], $data['capacity'], $data['country']);
         }
         return $this->render('search/search.html.twig', [
             'results' => $results

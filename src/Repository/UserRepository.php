@@ -104,20 +104,37 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     public function AffinerRechercheSelect($language, $options, $level, $country, $capacity )
     {
-        return $this->createQueryBuilder('u')
+
+        $queryBuilder = $this->createQueryBuilder('u')
             ->where('u.language = :language')
-            ->andWhere('u.options = :options')
-            ->andWhere('u.level = :level')
+            ->andWhere('u.options IN (:options)')
+            ->andWhere('u.level IN (:level)')
             ->andWhere('u.country = :country')
-            ->andWhere('u.capacity = :capacity')
             ->setParameter('language', $language)
             ->setParameter('options', $options)
             ->setParameter('level', $level)
             ->setParameter('country', $country)
-            ->setParameter('capacity', $capacity)
-            ->getQuery()
-            ->getResult()
             ;
+
+        switch ($capacity) {
+            case '<30':
+                $queryBuilder->andWhere('u.capacity < :capacity')
+                    ->setParameter('capacity', 30);
+                break;
+            case '>40':
+                $queryBuilder->andWhere('u.capacity > :capacity')
+                    ->setParameter('capacity', 40);
+                break;
+            case 'entre 30 et 40':
+                $queryBuilder
+                    ->andWhere('u.capacity < :capacity1')
+                    ->setParameter('capacity1', 40)
+                    ->andWhere('u.capacity > :capacity2')
+                    ->setParameter('capacity2', 30);
+
+                break;
+        }
+        return $queryBuilder->getQuery()->getResult();
 
     }
 

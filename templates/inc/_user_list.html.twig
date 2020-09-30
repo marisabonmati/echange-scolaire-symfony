@@ -23,7 +23,7 @@
                     <h4 class="card-title text-center">{{ user.firstname }} {{ user.lastName }}</h4>
                     <p class="card-text">{{ user.descriptionProfil[:200] }}...</p>
                 </div>
-                <a href="{{ path('search', {id: user.id}) }}" class="d-flex justify-content-center btn-voirplus">
+                <a href="{{ path('profil', {id: user.id}) }}" class="d-flex justify-content-center btn-voirplus">
                     Afficher le profil
                 </a>
             </div>

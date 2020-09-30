@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture implements DependentFixtureInterface
 {
-    const USER_COUNT = 20;
+    const USER_COUNT = 400;
     private $encoder;
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
@@ -43,7 +43,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setDescriptionProfil($faker->text);
             $user->setDescriptionSecondary($faker->text);
             $user->setPhone($faker->phoneNumber);
-            $user->setCapacity($faker->randomNumber([20, 30, 40]));
+            $user->setCapacity($faker->numberBetween(20, 60));
             $user->setLanguage($faker->randomElement(['anglais', 'français', 'español', 'italiano']));
             $user->setPhoto($faker->imageUrl($width=500, $height=400, 'people'));
             $datetimeStart = $faker->dateTimeBetween('0 years', '+2 years' );
