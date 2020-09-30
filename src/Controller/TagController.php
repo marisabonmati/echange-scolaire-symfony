@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Tag;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TagController extends AbstractController
@@ -12,16 +13,17 @@ class TagController extends AbstractController
     /**
      * @Route("/api/tag", name="api_tag")
      */
-    public function apiTag(TagRepository $tagRepository)
+    public function apiTag(TagRepository $tagRepository, Request $request)
     {
-        $tags = $tagRepository->find();
-        $tagAsArray = array_map(function ($tag){
+        $q = $request->get('q');
+
+        $results = $tagRepository->apiTag($q);
+
+        $tagAsArray = array_map(function ($results){
             return [
-                'name' => $tag->getName(),
-                'slug' => $tag->getSlug(),
-                'id' => $tag->getId()
+                'results' => $results,
             ];
-        }, $tags);
+        }, $results);
 
         return $this->json($tagAsArray);
     }
