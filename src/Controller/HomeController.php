@@ -34,13 +34,13 @@ class HomeController extends AbstractController
      * @Route("/home", name="home")
      */
     public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
-    {
-        $users = $userRepository->actualites();
-        $searchForm = $this->createForm(RechercheType::class);
+    {   // CETTE FONCTION PERMET D'AFFICHER LE FORMULAIRE DE RECHERCHE DE LA PAGE HOME
+            $users = $userRepository->actualites();
+            $searchForm = $this->createForm(RechercheType::class);
 
         return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
-            'list_users' =>  $users
+            'list_users' => $users
         ]);
     }
 
@@ -48,17 +48,17 @@ class HomeController extends AbstractController
      * @Route("/search/form", name="search_form")
      */
     public function searchForm(Request $request, UserRepository $userRepository)
-    {
-        $searchForm = $this->createForm(RechercheType::class);
-        $affinerForm = $this->createForm(AffinerRechercheType::class);
+    {   //CETTE FONCTION PERMET DE TRAITER LES REQUETES DE LA PAGE HOME + PAGE SEARCH
+            $searchForm = $this->createForm(RechercheType::class);
+            $affinerForm = $this->createForm(AffinerRechercheType::class);
 
-        $searchForm->handleRequest($request);
-        $affinerForm->handleRequest($request);
+            $searchForm->handleRequest($request);
+            $affinerForm->handleRequest($request);
 
-        if($searchForm->isSubmitted() && $searchForm->isValid()) {
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
             $data = $searchForm->getData();
             $results = $userRepository->searchSelect($data['Langue'], $data['Options'], $data['Entite']);
-        } else if($affinerForm->isSubmitted() && $affinerForm->isValid()) {
+        } else if ($affinerForm->isSubmitted() && $affinerForm->isValid()) {
             $data = $affinerForm->getData();
             $results = $userRepository->AffinerRechercheSelect($data['Langue'], $data['options'], $data['level'], $data['country'], $data['capacity']);
         }

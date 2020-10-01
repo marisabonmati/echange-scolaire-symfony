@@ -44,11 +44,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
 
         $i = 0;
-        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column){
+        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column) {
 
             foreach ($explodedQ as $word) {
-                $queryBuilder->orWhere('u.'.$column.' LIKE :word' .$i);
-                $queryBuilder->setParameter('word'.$i, '%'.$word.'%');
+                $queryBuilder->orWhere('u.' . $column . ' LIKE :word' . $i);
+                $queryBuilder->setParameter('word' . $i, '%' . $word . '%');
                 $i++;
             }
         }
@@ -59,7 +59,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     public function getLanguages()
-    {
+    {   // ICI, NOUS RECUPERONS EN DYNAMIQUE, LA LISTE DE TOUS LES LANGAGES
         return $languages = $this->createQueryBuilder('u')
             ->select('u.language')
             ->where('u.language IS NOT NULL')
@@ -68,8 +68,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getArrayResult();
 
     }
+
     public function getCountry()
-    {
+    {   // ICI, NOUS RECUPERONS EN DYNAMIQUE, LA LISTE DE TOUS LES PAYS
         return $country = $this->createQueryBuilder('u')
             ->select('u.country')
             ->where('u.country IS NOT NULL')
@@ -80,7 +81,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     public function searchSelect($language, $options, $entite)
-    {
+    {   // REQUETE POUR LE FORMULAIRE DE RECHERCHE 'SELECT' SUR LA PAGE INDEX
         return $this->createQueryBuilder('u')
             ->where('u.language = :language')
             ->andWhere('u.options = :options')
@@ -89,14 +90,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('options', $options)
             ->setParameter('entite', $entite)
             ->getQuery()
-            ->getResult()
-             ;
+            ->getResult();
 
 
     }
 
-    public function AffinerRechercheSelect($language, $options, $level, $country, $capacity )
-    {
+    public function AffinerRechercheSelect($language, $options, $level, $country, $capacity)
+    {   // REQUETE POUR LE FORMULAIRE DE LA RECHERCHE AVANCEE SUR LA PAGE SEARCH
 
         $queryBuilder = $this->createQueryBuilder('u')
             ->where('u.language = :language')
@@ -106,8 +106,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('language', $language)
             ->setParameter('options', $options)
             ->setParameter('level', $level)
-            ->setParameter('country', $country)
-            ;
+            ->setParameter('country', $country);
 
         switch ($capacity) {
             case '<30':
@@ -133,7 +132,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     public function actualites()
-    {
+    {   // REQUETE ALEATOIRE POUR AFFICHER DEUX PROFILS D'UTILISATEURS
         return $this->createQueryBuilder('u')
             ->setMaxResults(2)
             ->orderBy('RAND()')

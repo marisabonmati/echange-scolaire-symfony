@@ -19,11 +19,10 @@ class SearchController extends AbstractController
      * @Route("/search/nav", name="search_nav")
      */
     public function searchNav(Request $request, UserRepository $userRepository)
-    {
-        $affinerForm = $this->createForm(AffinerRechercheType::class);
-       $q = $request->get('search');
-      //dd($q);
-        $results = $userRepository->searchNav($q);
+    {   //CETTE FONCTION PERMET DE TRAITER LA REQUETE DE LA BARRE DE RECHERCHE SUR LE HEADER
+            $affinerForm = $this->createForm(AffinerRechercheType::class);
+            $q = $request->get('search');
+            $results = $userRepository->searchNav($q);
 
         return $this->render('search/search.html.twig', [
             'search' => $q,
@@ -36,12 +35,12 @@ class SearchController extends AbstractController
      * @Route("/search/affiner", name="search_affiner")
      */
     public function AffinerRechercheForm(Request $request, UserRepository $userRepository)
-    {
-        $affinerForm = $this->createForm(AffinerRechercheType::class);
+    {   //CETTE FONCTION EST NECESSAIRE POUR FAIRE UNE RECHERCHE AVANCEE
+            $affinerForm = $this->createForm(AffinerRechercheType::class);
 
-        $affinerForm->handleRequest($request);
+            $affinerForm->handleRequest($request);
 
-        if($affinerForm->isSubmitted() && $affinerForm->isValid()) {
+        if ($affinerForm->isSubmitted() && $affinerForm->isValid()) {
             $data = $affinerForm->getData();
             $results = $userRepository->AffinerRechercheSelect($data['Langue'], $data['options'], $data['level'], $data['capacity'], $data['country']);
         }

@@ -25,41 +25,40 @@ class RechercheType extends AbstractType
     {
         $this->userRepository = $userRepository;
     }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('Langue', ChoiceType::class, [
                 'label' => 'Sélectionnez la langue',
-                'choice_loader' =>  new CallbackChoiceLoader(function() {
+                'choice_loader' => new CallbackChoiceLoader(function () {
                     $languages = $this->userRepository->getLanguages();
-                    $languagesAsArray = array_map(function($l){
+                    $languagesAsArray = array_map(function ($l) {
                         return $l['language'];
                     }, $languages);
                     $result = [];
-                    foreach($languagesAsArray as $language) {
+                    foreach ($languagesAsArray as $language) {
                         $result[ucfirst($language)] = $language;
                     }
-                    return $result;
+                return $result;
                 })
             ])
             ->add('Options', ChoiceType::class, [
                 'label' => 'Vous souhaitez',
-                'choices'=> [
+                'choices' => [
                     'Accueillir' => 'voyage',
                     'Voyager' => 'accueil',
                     'Echanger' => 'échange'
                 ]
             ])
-            ->add('Entite', ChoiceType::class,[
+            ->add('Entite', ChoiceType::class, [
                 'label' => 'Vous recherchez un',
-                'choices'=> [
+                'choices' => [
                     'Enseignant' => 'enseignant',
                     'Etablissement' => 'etablissement'
                 ]
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Valider'])
-
-        ;
+            ->add('submit', SubmitType::class, ['label' => 'Valider']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

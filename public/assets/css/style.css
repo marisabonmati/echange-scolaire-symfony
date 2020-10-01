@@ -221,7 +221,13 @@ h1{
     background-size: contain;
 }
 
-#recherche form{
+/*#recherche form{
+    border-radius: 15px;
+    background-color: rgba(112, 128, 144, 0.7);
+    margin: 0 auto;
+}*/
+
+#recherche2{
     border-radius: 15px;
     background-color: rgba(112, 128, 144, 0.7);
     margin: 0 auto;

@@ -8,7 +8,7 @@ use Doctrine\ORM\Query\Lexer;
 
 class RandFunction extends FunctionNode
 {
-
+// DOCTRINE N'A PAS DE FONCTION 'RAND()' DONC NOUS FAISONS APPEL A LA FONCTION NATIVE 'RAND()' DE MYSQL
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {
         $parser->match(Lexer::T_IDENTIFIER);
