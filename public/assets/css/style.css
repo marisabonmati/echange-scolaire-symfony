@@ -17,6 +17,8 @@ a {
     text-decoration: underline;
 }
 
+
+
 .custom-file-label::after {
     content: "Parcourir";
 }
@@ -85,6 +87,12 @@ CSS Revenir Accueil et bg title
     font-weight: bold;
     color: #02C39A;
 }
+
+.revenir-accueil{
+    text-decoration: underline;
+    color: #02C39A;
+}
+
 .title-search{
     font-weight: 700;
     font-size: 2.5rem;
@@ -428,11 +436,6 @@ footer{
 
 .page-footer{
     border-top: 2.5px solid #02C39A;
-}
-
-.copyright{
-    text-decoration: none;
-    color: #02C39A;
 }
 
 /*///////////////////////////
