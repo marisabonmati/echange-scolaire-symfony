@@ -32,11 +32,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <form class="form-inline">
-                <input class="form-control" type="search" id="search" placeholder="Rechercher" aria-label="Search">
+            <form action="{{ path('search_nav') }}" class="form-inline">
+                <input class="form-control" type="text" name="search" id="search" placeholder="Rechercher" aria-label="Search">
                 <button class="btn btn-form"><i class="fas fa-search"></i></button>
             </form>
-
 
             <ul class="navbar-nav">
                 {% if app.user %}
@@ -84,7 +83,6 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">

@@ -17,8 +17,6 @@ a {
     text-decoration: underline;
 }
 
-
-
 .custom-file-label::after {
     content: "Parcourir";
 }
@@ -233,7 +231,7 @@ h1{
     background-size: contain;
 }
 
-#recherche form{
+.recherche2{
     border-radius: 15px;
     background-color: rgba(112, 128, 144, 0.7);
     margin: 0 auto;
