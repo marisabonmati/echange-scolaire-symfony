@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\PublicationRepository;
 use App\Form\AffinerRechercheType;
 use App\Form\RechercheType;
@@ -13,18 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    /**
-     * @Route("/home", name="home")
-     */
-    public function index(PublicationRepository $publicationRepository)
-    {
-        $publication = $publicationRepository->searchPublication();
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-            'list_publication' => $publication,
-
-        ]);
-    }
 
     /**
      * @Route("/", name="root")
@@ -37,14 +26,14 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function home(UserRepository $userRepository)
+    public function home(UserRepository $userRepository, PublicationRepository $publicationRepository)
     {   // CETTE FONCTION PERMET D'AFFICHER LE FORMULAIRE DE RECHERCHE DE LA PAGE HOME
-            $users = $userRepository->actualites();
-            $searchForm = $this->createForm(RechercheType::class);
+        $searchForm = $this->createForm(RechercheType::class);
+        $publication = $publicationRepository->searchPublication();
 
         return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
-            'list_users' => $users
+            'list_publication' => $publication,
         ]);
     }
 
