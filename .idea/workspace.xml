@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05528a25-ef89-4f3c-81e3-f61a209ec064" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/annonce/annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/annonce.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profil/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/profil.html.twig" afterDir="false" />
     </list>
