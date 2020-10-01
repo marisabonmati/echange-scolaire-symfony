@@ -5,10 +5,10 @@
     {% for publication in list_publication %}
 
         {% if app.user and app.user == publication.userPost %}
-            <div class="col-12 col-lg-6 mb-4">
-                <div class="card p-3">
+            <div class="col-12 col-lg-5 mb-4 p-3 mx-auto">
+                <div class="card h-100 p-3">
                     <h3 class="text-center p-4">{{ publication.title }}</h3>
-                    <img src="{{ asset(publication.picture) }}" class="w-75 mx-auto" alt="Photo scolaire">
+                    <img src="{{ asset(publication.picture) }}" class=" mx-auto mh-100" alt="Photo scolaire">
                         <div class="card-body">
                             <p class="card-text ">
                             {{ publication.descriptionPost }}

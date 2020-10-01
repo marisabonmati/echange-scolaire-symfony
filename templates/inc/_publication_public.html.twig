@@ -1,9 +1,9 @@
 
-                <div class="col-12 col-lg-6 mb-4">
-                    <div class="card p-3">
+                <div class="col-12 col-lg-5 mb-4 mx-auto">
+                    <div class="card h-100 p-3">
                         <h3 class="text-center p-1">{{ publication.title }}</h3>
                         <h4 class="text-center text-muted">Ajouté par l'{{ publication.userPost.entite }} {{ publication.userPost.lastname }} </h4>
-                        <img src="{{ asset(publication.picture) }}" class="w-75 mx-auto" alt="Photo scolaire">
+                        <img src="{{ asset(publication.picture) }}" class="mx-auto mw-100" alt="Photo scolaire">
                         <div class="card-body">
                             <p class="card-text ">
                                 {{ publication.descriptionPost[:150] }}...
