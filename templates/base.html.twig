@@ -44,6 +44,13 @@
                     <li class="nav-item d-flex">
                         <a class="nav-link btn-nav" href="{{ path('app_logout') }}">Déconnexion<span class="sr-only">(current)</span></a>
                     </li>
+                    {% for flashMessage in app.flashes('notice') %}
+
+                        <div class="alert alert-success">
+                            {{ flashMessage }}
+                        </div>
+
+                    {% endfor %}
                     <li class="nav-item d-flex ">
                         <a class="nav-link btn-nav" href="{{ path('profil_edit', {id: app.user.id}) }}">Profil<span class="sr-only">(current)</span></a>
                     </li>
@@ -78,6 +85,8 @@
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
+
+
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
