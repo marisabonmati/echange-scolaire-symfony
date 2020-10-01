@@ -56,14 +56,16 @@
                 <div class="text-center">
                     <h3 class="pt-2">Configuration de votre profil</h3>
                     <div class="row text-left my-4">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 pl-2">
                             <fieldset class="border rounded m-2 p-2">
+
                                 <p><i class="mr-2 iconvsp fas fa-map-marker-alt colorIcon"></i>
                                     Ville :
                                     {{ form_widget(profilForm.city) }}
                                     {{ form_errors(profilForm.city) }}
 
                                 </p>
+
                                 <hr class="my-4">
 
                                 <p><i class="mr-2 iconvsp fas fa-map-marker-alt colorIcon"></i>
@@ -72,6 +74,7 @@
                                     {{ form_errors(profilForm.country) }}
 
                                 </p>
+
                                 <hr class="my-4">
 
                                 <p><i class="mr-2 iconvsp far fa-calendar-alt colorIcon"></i>Choisissez une date de
@@ -80,6 +83,7 @@
                                     {{ form_errors(profilForm.disponibilityDateStart) }}
 
                                 </p>
+
                                 <hr class="my-4">
 
                                 <p><i class="mr-2 iconvsp far fa-calendar-alt colorIcon"></i>Choisissez une date de fin
@@ -88,16 +92,18 @@
                                     {{ form_errors(profilForm.disponibilityDateEnd) }}
 
                                 </p>
+
                                 <hr class="my-4">
 
-                                <p>
-                                    <label class="">Recherche d'échange</label>
+                                <p><i class="fas fa-retweet colorIcon"></i>
+                                    Recherche d'échange
                                     {{ form_widget(profilForm.options) }}
                                     {{ form_errors(profilForm.options) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Ajoutez des mot clés liés à votre profil :
+                                <p><i class="fas fa-key colorIcon"></i>
+                                    Ajoutez des mot clés liés à votre profil :
                                     {{ form_widget(profilForm.tags) }}
                                     {{ form_errors(profilForm.tags) }}
                                 </p>
@@ -105,19 +111,22 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <fieldset class="border rounded m-2 p-2">
-                                <p>Description de votre vie scolaire
+                                <p><i class="far fa-edit colorIcon"></i>
+                                    Description de votre vie scolaire
                                     {{ form_widget(profilForm.descriptionSecondary, { attr : {style: 'height: 15rem' }}) }}
                                     {{ form_errors(profilForm.descriptionSecondary) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Langues enseignées :
+                                <p><i class="fas fa-globe-europe colorIcon"></i>
+                                    Langues enseignées :
                                     {{ form_widget(profilForm.language) }}
                                     {{ form_errors(profilForm.language) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Niveau de votre classe/établissement :
+                                <p><i class="fas fa-graduation-cap colorIcon"></i>
+                                    Niveau de votre classe/établissement :
                                     {{ form_widget(profilForm.level) }}
                                     {{ form_errors(profilForm.level) }}
                                 </p>
@@ -142,25 +151,29 @@
                     <div class="row text-left my-4">
                         <div class="col-12 col-md-6">
                             <fieldset class="border rounded m-2 p-2">
-                                <p> Votre nom :
+                                <p> <i class="far fa-address-card colorIcon"></i>
+                                    Votre nom :
                                     {{ form_widget(profilForm.lastName) }}
                                     {{ form_errors(profilForm.lastName) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Votre prénom :
+                                <p> <i class="far fa-address-card colorIcon"></i>
+                                    Votre prénom :
                                     {{ form_widget(profilForm.firstname) }}
                                     {{ form_errors(profilForm.firstname) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Votre e-mail :
+                                <p> <i class="fas fa-at colorIcon"></i>
+                                    Votre e-mail :
                                     {{ form_widget(profilForm.email) }}
                                     {{ form_errors(profilForm.email) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Votre mot de passe :
+                                <p> <i class="fas fa-unlock-alt colorIcon"></i>
+                                    Votre mot de passe :
                                     {{ form_widget(profilForm.plainPassword) }}
                                     {{ form_errors(profilForm.plainPassword) }}
                                 </p>
@@ -169,19 +182,22 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <fieldset class="border rounded m-2 p-2">
-                                <p> Votre numéro de téléphone :
+                                <p> <i class="fas fa-phone-alt colorIcon"></i>
+                                    Votre numéro de téléphone :
                                     {{ form_widget(profilForm.phone) }}
                                     {{ form_errors(profilForm.phone) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Votre adresse :
+                                <p> <i class="fas fa-map-marked-alt colorIcon"></i>
+                                    Votre adresse :
                                     {{ form_widget(profilForm.adress) }}
                                     {{ form_errors(profilForm.adress) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> Votre code postal :
+                                <p> <i class="fas fa-map-marked-alt colorIcon"></i>
+                                    Votre code postal :
                                     {{ form_widget(profilForm.cp) }}
                                     {{ form_errors(profilForm.cp) }}
                                 </p>
