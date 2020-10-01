@@ -119,12 +119,12 @@ class User implements UserInterface
     private $capacity;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="json", length=30, nullable=true)
      */
     private $language;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="json", length=30, nullable=true)
      */
     private $level;
 
@@ -432,24 +432,24 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getLanguage(): ?string
+    public function getLanguage(): ?array
     {
         return $this->language;
     }
 
-    public function setLanguage(?string $language): self
+    public function setLanguage(?array $language): self
     {
         $this->language = $language;
 
         return $this;
     }
 
-    public function getLevel(): ?string
+    public function getLevel(): ?array
     {
         return $this->level;
     }
 
-    public function setLevel(?string $level): self
+    public function setLevel(?array $level): self
     {
         $this->level = $level;
 

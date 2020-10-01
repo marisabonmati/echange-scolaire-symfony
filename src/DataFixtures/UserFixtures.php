@@ -35,7 +35,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setLastname($faker->lastName);
             $user->setEmail($faker->email);
             $user->setRoles(['ROLE_USER']);
-            $password = $this->encoder->encodePassword($user, 'user');
+            $password = $this->encoder->encodePassword($user, 'password');
             $user->setPassword($password);
             $user->setAdress($faker->address);
             $user->setCp($faker->numberBetween(10000, 99999));
@@ -45,12 +45,12 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setDescriptionSecondary($faker->text);
             $user->setPhone($faker->phoneNumber);
             $user->setCapacity($faker->numberBetween(20, 60));
-            $user->setLanguage($faker->randomElement(['anglais', 'français', 'español', 'italiano']));
+            $user->setLanguage($faker->randomElements(['anglais', 'francais', 'espanol', 'italiano'], random_int(1, 2)));
             $user->setPhoto($faker->imageUrl($width=500, $height=400, 'people'));
             $datetimeStart = $faker->dateTimeBetween('0 years', '+2 years' );
             $user->setDisponibilityDateStart($datetimeStart);
             $user->setDisponibilityDateEnd($faker->dateTime($datetimeStart, '+2 years' ));
-            $user->setLevel($faker->randomElement(['lycée', 'collège']));
+            $user->setLevel($faker->randomElements(['lycée', 'collège'], random_int(1, 2)));
             $user->setOptions($faker->randomElement(['échange', 'accueil', 'voyage']));
             for ($j = 0; $j < random_int(0,5); $j++){
                 $user->addTag($this->getReference('tag' . random_int(0, TagFixtures::TAG_COUNT -1)));

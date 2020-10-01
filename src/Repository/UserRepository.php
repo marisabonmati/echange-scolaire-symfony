@@ -38,13 +38,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     public function searchNav($q)
     {
-
         $explodedQ = explode(" ", $q);
         $queryBuilder = $this->createQueryBuilder('u');
 
-
         $i = 0;
-        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column) {
+        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options', 'tags'] as $column) {
 
             foreach ($explodedQ as $word) {
                 $queryBuilder->orWhere('u.' . $column . ' LIKE :word' . $i);
@@ -52,10 +50,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                 $i++;
             }
         }
-
-
         return $queryBuilder->getQuery()->getResult();
-
     }
 
     public function getLanguages()
@@ -66,7 +61,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->groupBy('u.language')
             ->getQuery()
             ->getArrayResult();
-
     }
 
     public function getCountry()
@@ -77,7 +71,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->groupBy('u.country')
             ->getQuery()
             ->getArrayResult();
-
     }
 
     public function searchSelect($language, $options, $entite)
@@ -91,8 +84,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('entite', $entite)
             ->getQuery()
             ->getResult();
-
-
     }
 
     public function AffinerRechercheSelect($language, $options, $level, $country, $capacity)
@@ -125,10 +116,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                     ->setParameter('capacity2', 30);
 
                 break;
-
         }
         return $queryBuilder->getQuery()->getResult();
-
     }
 
     public function actualites()

@@ -38,7 +38,10 @@ class RechercheType extends AbstractType
                     }, $languages);
                     $result = [];
                     foreach ($languagesAsArray as $language) {
-                            $result[ucfirst($language)] = $language;
+                        foreach ($language as $l){
+                            $result[ucfirst($l)] = $l;
+                        }
+
                     }
                 return $result;
                 })
