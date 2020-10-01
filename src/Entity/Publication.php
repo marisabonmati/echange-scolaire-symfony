@@ -51,12 +51,12 @@ class Publication
         return $this->id;
     }
 
-    public function getTitle(): ?array
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(array $title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 

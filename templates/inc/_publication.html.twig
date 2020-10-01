@@ -1,27 +1,33 @@
 <section class="container-fluid bg-light mb-3">
-    <div class="container mx-auto">
-        <div class="row">
-            {% for publi in list_publication %}
 
-                <div class="col-12 col-lg-6 mb-4">
-                    <h3 class="text-center p-4">{{ publication.title }}</h3>
-                    <div class="card p-3">
-                        <img src="{{ asset(publication.pictureFile) }}" class="w-25" alt="Photo scolaire">
-                        <div class="card-body">
-                            <p class="card-text ">
-                                {{ publication.descriptionPost }}
-                            </p>
+    {% for publication in list_publication %}
+
+        {% if app.user and app.user == publication.userPost %}
+            <div class="container mx-auto">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="card p-3">
+                            <h3 class="text-center p-4">{{ publication.title }}</h3>
+                            <img src="{{ asset(publication.picture) }}" class="w-25" alt="Photo scolaire">
+                            <div class="card-body">
+                                <p class="card-text ">
+                                    {{ publication.descriptionPost }}
+                                </p>
+                            </div>
+                            <a href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
+                            {% endif %}
                         </div>
+
                     </div>
                 </div>
+            </div>
 
-                {% if app.user and app.user == publication.user %}
-                <a href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
-                <a href="{{ path('publication') }}">Ajouter une publication</a>
-
-                {% endif %}
-            {% endfor %}
-
-        </div>
+    {% endfor %}
+    <div class="container">
+        {% if app.user %}
+            <a href="{{ path('publication') }}">Ajouter une publication</a>
+        {% endif %}
     </div>
+
+
 </section>
