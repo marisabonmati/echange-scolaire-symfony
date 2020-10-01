@@ -32,10 +32,10 @@
                             <img src="{{ asset(user.photo) }}" class="w-100" alt="">
                         {% endif %}
 
-                    <div class="py-2">
-                        {{ form_widget(profilForm.photoFile) }}
-                        {{ form_errors(profilForm.photoFile) }}
-                    </div>
+                        <div class="py-2">
+                            {{ form_widget(profilForm.photoFile) }}
+                            {{ form_errors(profilForm.photoFile) }}
+                        </div>
                     </div>
 
                     <!--Description profil -->
@@ -148,28 +148,28 @@
                     <div class="row text-left my-4">
                         <div class="col-12 col-lg-6 ">
                             <fieldset class="border rounded m-2 p-2">
-                                <p> <i class="far fa-address-card couleur"></i>
+                                <p><i class="far fa-address-card couleur"></i>
                                     Votre nom :
                                     {{ form_widget(profilForm.lastName) }}
                                     {{ form_errors(profilForm.lastName) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> <i class="far fa-address-card couleur"></i>
+                                <p><i class="far fa-address-card couleur"></i>
                                     Votre prénom :
                                     {{ form_widget(profilForm.firstname) }}
                                     {{ form_errors(profilForm.firstname) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> <i class="fas fa-at couleur"></i>
+                                <p><i class="fas fa-at couleur"></i>
                                     Votre e-mail :
                                     {{ form_widget(profilForm.email) }}
                                     {{ form_errors(profilForm.email) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> <i class="fas fa-unlock-alt couleur"></i>
+                                <p><i class="fas fa-unlock-alt couleur"></i>
                                     Votre mot de passe :
                                     {{ form_widget(profilForm.plainPassword) }}
                                     {{ form_errors(profilForm.plainPassword) }}
@@ -179,21 +179,21 @@
                         </div>
                         <div class="col-12 col-lg-6">
                             <fieldset class="border rounded m-2 p-2">
-                                <p> <i class="fas fa-phone-alt couleur"></i>
+                                <p><i class="fas fa-phone-alt couleur"></i>
                                     Votre numéro de téléphone :
                                     {{ form_widget(profilForm.phone) }}
                                     {{ form_errors(profilForm.phone) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> <i class="fas fa-map-marked-alt couleur"></i>
+                                <p><i class="fas fa-map-marked-alt couleur"></i>
                                     Votre adresse :
                                     {{ form_widget(profilForm.adress) }}
                                     {{ form_errors(profilForm.adress) }}
                                 </p>
                                 <hr class="my-4">
 
-                                <p> <i class="fas fa-map-marked-alt couleur"></i>
+                                <p><i class="fas fa-map-marked-alt couleur"></i>
                                     Votre code postal :
                                     {{ form_widget(profilForm.cp) }}
                                     {{ form_errors(profilForm.cp) }}
@@ -209,8 +209,27 @@
             </div>
         </section>
 
-        <!-- Historique du profil desktop -->
+        <!-- Publication du profil -->
 
+        <section class="container-fluid bg-light mb-3">
+            <div class="container mx-auto">
+                <div class="row">
+                    {% for publi in list_publication %}
+
+                        <div class="col-12 col-lg-6 mb-4">
+                            <h3 class="text-center p-4">{{ publication.title }}</h3>
+                            <div class="card p-3">
+                                {{ publication.pictureFile }}
+                                <div class="card-body">
+                                    <p class="card-text ">
+                                        {{ publication.descriptionPost }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </section>
 
         <!-- Avis / Tapez votre commentaire desktop -->
         <section class="container-fluid mb-3">

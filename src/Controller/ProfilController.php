@@ -6,6 +6,7 @@ use App\Entity\Publication;
 use App\Entity\User;
 use App\Form\ProfilType;
 use App\Form\PublicationType;
+use App\Repository\PublicationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -21,7 +22,7 @@ class ProfilController extends AbstractController
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @Security("user === null or modifiedUser == user")
      */
-    public function profilForm(Request $request, EntityManagerInterface $manager, User $modifiedUser)
+    public function profilForm(Request $request, EntityManagerInterface $manager, User $modifiedUser, PublicationRepository $publicationRepository)
     {
 
         $profilForm = $this->createForm(ProfilType::class, $modifiedUser);
@@ -47,9 +48,12 @@ class ProfilController extends AbstractController
 
         }
 
+        $publi = $publicationRepository->searchPublication();
+
         return $this->render('profil/profil.html.twig', [
             'profilForm' => $profilForm->createView(),
             'user' => $modifiedUser,
+            'list_publication' => $publi,
         ]);
     }
 
@@ -77,7 +81,7 @@ class ProfilController extends AbstractController
             if ($pictureFile !== null) {
                 $filename = md5(uniqid()) . '.' . $pictureFile->guessExtension();
                 $pictureFile->move('photo_publi', $filename);
-                $publication->setPhoto('photo_publi/'.$filename);
+                $publication->setPicture('photo_publi/'.$filename);
             }
 
             $publication->setUserPost($this->getUser());
