@@ -23,7 +23,7 @@ class PublicationRepository extends ServiceEntityRepository
     public function searchPublication()
     {
         return $this->createQueryBuilder('p')
-            ->leftJoin('p.user', 'u')
+            ->leftJoin('p.userPost', 'u')
             ->addSelect('u')
             ->getQuery()
             ->getResult();

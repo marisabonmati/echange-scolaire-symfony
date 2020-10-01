@@ -45,7 +45,6 @@ class ProfilController extends AbstractController
 
             $manager->persist($modifiedUser);
             $manager->flush();
-
         }
 
         $publi = $publicationRepository->searchPublication();
