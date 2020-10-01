@@ -1,34 +1,27 @@
-{% extends 'base.html.twig' %}
+<section class="container-fluid bg-light mb-3">
+    <div class="container mx-auto">
+        <div class="row">
+            {% for publi in list_publication %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-{% endblock %}
-
-{% block body %}
-    {{ form_start(publicationForm) }}
-    <section class="container-fluid bg-light mb-3">
-        <div class="container mx-auto">
-            <h3 class="text-center p-4">Ajouter une nouvelle publication</h3>
-            <div class="card p-3">
-                {{ form_widget(publicationForm.pictureFile) }}
-                {{ form_errors(publicationForm.pictureFile) }}
-
-                <div class="card-body">
-                    <h4 class="card-title">
-                        {{ form_widget(publicationForm.title) }}
-                        {{ form_errors(publicationForm.title) }}
-                    </h4>
-                    <p class="card-text ">
-                        {{ form_widget(publicationForm.descriptionPost, { attr : {style: 'height: 15rem' }}) }}
-                        {{ form_errors(publicationForm.descriptionPost) }}
-                    </p>
-                    <p class="d-flex justify-content-center">
-                    {{ form_widget(publicationForm.submit, {attr : {class : 'btn btn-form'}}) }}
-                    </p>
+                <div class="col-12 col-lg-6 mb-4">
+                    <h3 class="text-center p-4">{{ publication.title }}</h3>
+                    <div class="card p-3">
+                        <img src="{{ asset(publication.pictureFile) }}" class="w-25" alt="Photo scolaire">
+                        <div class="card-body">
+                            <p class="card-text ">
+                                {{ publication.descriptionPost }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                {% if app.user and app.user == publication.user %}
+                <a href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
+                <a href="{{ path('publication') }}">Ajouter une publication</a>
+
+                {% endif %}
+            {% endfor %}
+
         </div>
-    </section>
-    {{ form_end(publicationForm) }}
-{% endblock %}
+    </div>
+</section>

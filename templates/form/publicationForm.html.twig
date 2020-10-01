@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(publicationForm) }}
+    <section class="container-fluid bg-light mb-3">
+        <div class="container mx-auto">
+            <h3 class="text-center p-4">Ajouter une nouvelle publication</h3>
+            <div class="card p-3">
+                {{ form_widget(publicationForm.pictureFile) }}
+                {{ form_errors(publicationForm.pictureFile) }}
+
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{ form_widget(publicationForm.title) }}
+                        {{ form_errors(publicationForm.title) }}
+                    </h4>
+                    <p class="card-text ">
+                        {{ form_widget(publicationForm.descriptionPost, { attr : {style: 'height: 15rem' }}) }}
+                        {{ form_errors(publicationForm.descriptionPost) }}
+                    </p>
+                    <p class="d-flex justify-content-center">
+                    {{ form_widget(publicationForm.submit, {attr : {class : 'btn btn-form'}}) }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ form_end(publicationForm) }}
+{% endblock %}

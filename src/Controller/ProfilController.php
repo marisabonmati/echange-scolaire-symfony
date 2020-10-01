@@ -57,18 +57,19 @@ class ProfilController extends AbstractController
     }
 
     /**
-     * @Route("/publication/{id}", name="publication")
+     * @Route("/publication", name="publication")
+     * @Route("/publication/edit/{id}", name="publication_edit")
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function publicationForm(Request $request, EntityManagerInterface $manager, Publication $publication)
     {
-        $publicationForm = $this->createForm(PublicationType::class, $publication);
-
-        $publicationForm->handleRequest($request);
-
         if ($publication === null){
             $publication = new Publication();
         }
+
+        $publicationForm = $this->createForm(PublicationType::class, $publication);
+
+        $publicationForm->handleRequest($request);
 
         if ($publicationForm->isSubmitted() && $publicationForm->isValid()){
             /**
@@ -91,7 +92,7 @@ class ProfilController extends AbstractController
             return $this->redirectToRoute('profil_edit', ['id' => $this -> getUser() -> getId() ]);
         }
 
-        return $this->render('inc/_publication.html.twig', [
+        return $this->render('inc/publicationForm.html.twig', [
             'publicationForm' => $publicationForm->createView(),
         ]);
     }
