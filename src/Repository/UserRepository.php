@@ -35,4 +35,109 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->persist($user);
         $this->_em->flush();
     }
+
+    public function searchNav($q)
+    {
+
+        $explodedQ = explode(" ", $q);
+        $queryBuilder = $this->createQueryBuilder('u');
+
+
+        $i = 0;
+        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column) {
+
+            foreach ($explodedQ as $word) {
+                $queryBuilder->orWhere('u.' . $column . ' LIKE :word' . $i);
+                $queryBuilder->setParameter('word' . $i, '%' . $word . '%');
+                $i++;
+            }
+        }
+
+
+        return $queryBuilder->getQuery()->getResult();
+
+    }
+
+    public function getLanguages()
+    {   // ICI, NOUS RECUPERONS EN DYNAMIQUE, LA LISTE DE TOUS LES LANGAGES
+        return $languages = $this->createQueryBuilder('u')
+            ->select('u.language')
+            ->where('u.language IS NOT NULL')
+            ->groupBy('u.language')
+            ->getQuery()
+            ->getArrayResult();
+
+    }
+
+    public function getCountry()
+    {   // ICI, NOUS RECUPERONS EN DYNAMIQUE, LA LISTE DE TOUS LES PAYS
+        return $country = $this->createQueryBuilder('u')
+            ->select('u.country')
+            ->where('u.country IS NOT NULL')
+            ->groupBy('u.country')
+            ->getQuery()
+            ->getArrayResult();
+
+    }
+
+    public function searchSelect($language, $options, $entite)
+    {   // REQUETE POUR LE FORMULAIRE DE RECHERCHE 'SELECT' SUR LA PAGE INDEX
+        return $this->createQueryBuilder('u')
+            ->where('u.language = :language')
+            ->andWhere('u.options = :options')
+            ->andWhere('u.entite = :entite')
+            ->setParameter('language', $language)
+            ->setParameter('options', $options)
+            ->setParameter('entite', $entite)
+            ->getQuery()
+            ->getResult();
+
+
+    }
+
+    public function AffinerRechercheSelect($language, $options, $level, $country, $capacity)
+    {   // REQUETE POUR LE FORMULAIRE DE LA RECHERCHE AVANCEE SUR LA PAGE SEARCH
+
+        $queryBuilder = $this->createQueryBuilder('u')
+            ->where('u.language = :language')
+            ->andWhere('u.options IN (:options)')
+            ->andWhere('u.level IN (:level)')
+            ->andWhere('u.country = :country')
+            ->setParameter('language', $language)
+            ->setParameter('options', $options)
+            ->setParameter('level', $level)
+            ->setParameter('country', $country);
+
+        switch ($capacity) {
+            case '<30':
+                $queryBuilder->andWhere('u.capacity < :capacity')
+                    ->setParameter('capacity', 30);
+                break;
+            case '>40':
+                $queryBuilder->andWhere('u.capacity > :capacity')
+                    ->setParameter('capacity', 40);
+                break;
+            case 'entre 30 et 40':
+                $queryBuilder
+                    ->andWhere('u.capacity < :capacity1')
+                    ->setParameter('capacity1', 40)
+                    ->andWhere('u.capacity > :capacity2')
+                    ->setParameter('capacity2', 30);
+
+                break;
+
+        }
+        return $queryBuilder->getQuery()->getResult();
+
+    }
+
+    public function actualites()
+    {   // REQUETE ALEATOIRE POUR AFFICHER DEUX PROFILS D'UTILISATEURS
+        return $this->createQueryBuilder('u')
+            ->setMaxResults(2)
+            ->orderBy('RAND()')
+            ->getQuery()
+            ->getResult();
+    }
+
 }

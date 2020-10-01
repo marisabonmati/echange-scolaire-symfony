@@ -42,8 +42,7 @@ class RegistrationFormType extends AbstractType
                 'choices' => $choices,
                 'placeholder' => 'Choisissez une entité',
                 'empty_data' => null,
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
