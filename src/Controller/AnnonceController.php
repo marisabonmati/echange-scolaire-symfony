@@ -17,7 +17,7 @@ class AnnonceController extends AbstractController
         $publication = $publicationRepository->searchPublication();
         return $this->render('annonce/annonce.html.twig', [
             'user' => $user,
-            'list_publication' => $publicationRepository,
+            'list_publication' => $publication,
         ]);
     }
 }
