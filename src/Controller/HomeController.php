@@ -33,7 +33,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
+    public function home(UserRepository $userRepository)
     {   // CETTE FONCTION PERMET D'AFFICHER LE FORMULAIRE DE RECHERCHE DE LA PAGE HOME
             $users = $userRepository->actualites();
             $searchForm = $this->createForm(RechercheType::class);
