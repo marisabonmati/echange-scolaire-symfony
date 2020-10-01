@@ -35,8 +35,8 @@ class HomeController extends AbstractController
      */
     public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
     {   // CETTE FONCTION PERMET D'AFFICHER LE FORMULAIRE DE RECHERCHE DE LA PAGE HOME
-            $users = $userRepository->actualites();
-            $searchForm = $this->createForm(RechercheType::class);
+        $users = $userRepository->actualites();
+        $searchForm = $this->createForm(RechercheType::class);
 
         return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
@@ -49,11 +49,15 @@ class HomeController extends AbstractController
      */
     public function searchForm(Request $request, UserRepository $userRepository)
     {   //CETTE FONCTION PERMET DE TRAITER LES REQUETES DE LA PAGE HOME + PAGE SEARCH
-            $searchForm = $this->createForm(RechercheType::class);
-            $affinerForm = $this->createForm(AffinerRechercheType::class);
+        if($request->getMethod()!='POST'){
+            return $this->redirectToRoute('home');
+        }
 
-            $searchForm->handleRequest($request);
-            $affinerForm->handleRequest($request);
+        $searchForm = $this->createForm(RechercheType::class);
+        $affinerForm = $this->createForm(AffinerRechercheType::class);
+
+        $searchForm->handleRequest($request);
+        $affinerForm->handleRequest($request);
 
         if ($searchForm->isSubmitted() && $searchForm->isValid()) {
             $data = $searchForm->getData();
