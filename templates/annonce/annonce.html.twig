@@ -56,12 +56,12 @@
                             </p>
 
                             <p><i class="fas fa-globe-europe couleur"></i>
-                                Langue enseignée : {{ user.language }}
+                                Langue enseignée : {{ user.language| join(', ', ' et ') }}
 
                             </p>
 
                             <p><i class="fas fa-graduation-cap couleur"></i>
-                                Niveaux enseignés : {{ user.level }}
+                                Niveaux enseignés : {{ user.level| join(', ', ' et ') }}
                             </p>
 
                             <p><i class="mr-2 iconvsp fas fa-users couleur"></i>
