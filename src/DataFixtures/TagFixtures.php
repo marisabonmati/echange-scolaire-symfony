@@ -9,7 +9,7 @@ use Faker\Factory;
 
 class TagFixtures extends Fixture
 {
-    const TAG_COUNT = 200;
+    const TAG_COUNT = 50;
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');

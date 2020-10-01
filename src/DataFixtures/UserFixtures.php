@@ -35,7 +35,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setLastname($faker->lastName);
             $user->setEmail($faker->email);
             $user->setRoles(['ROLE_USER']);
-            $password = $this->encoder->encodePassword($user, 'user');
+            $password = $this->encoder->encodePassword($user, 'password');
             $user->setPassword($password);
             $user->setAdress($faker->address);
             $user->setCp($faker->numberBetween(10000, 99999));
@@ -44,8 +44,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setDescriptionProfil($faker->text);
             $user->setDescriptionSecondary($faker->text);
             $user->setPhone($faker->phoneNumber);
-            $user->setCapacity($faker->randomNumber([20, 30, 40]));
-            $user->setLanguage($faker->randomElements(['anglais', 'francais', 'espanol', 'italiano'], random_int(1, 2)));
+            $user->setCapacity($faker->numberBetween(15, 50));
+            $user->setLanguage($faker->randomElements(['Anglais', 'Français', 'Espagnol', 'Italien'], random_int(1, 2)));
             $user->setPhoto($faker->imageUrl($width=500, $height=400, 'people'));
             $datetimeStart = $faker->dateTimeBetween('0 years', '+2 years' );
             $user->setDisponibilityDateStart($datetimeStart);

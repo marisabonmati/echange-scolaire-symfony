@@ -10,7 +10,7 @@ use Faker\Factory;
 
 class PublicationFixtures extends Fixture implements DependentFixtureInterface
 {
-    const PUBLICATION_COUNT = 5;
+    const PUBLICATION_COUNT = 20;
 
     public function load(ObjectManager $manager)
     {
@@ -19,7 +19,7 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
         for($i = 0; $i < self::PUBLICATION_COUNT; $i++) {
             $publication = new Publication();
             $publication->setDescriptionPost($faker->text);
-            $publication->setTitle($faker->text(30));
+            $publication->setTitle($faker->randomElement(['Echange', 'Hôte', 'Accueil']));
             $publication->setPicture($faker->imageUrl($width=500, $height=400, 'people'));
             $publication->setUserPost($this->getReference('user' . random_int(0, UserFixtures::USER_COUNT -1)));
             $manager->persist($publication);

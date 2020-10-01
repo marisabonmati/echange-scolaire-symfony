@@ -8,13 +8,13 @@
             <div class="col-12 col-lg-6 mb-4">
                 <div class="card p-3">
                     <h3 class="text-center p-4">{{ publication.title }}</h3>
-                    <img src="{{ asset(publication.picture) }}" class="w-25 mx-auto" alt="Photo scolaire">
+                    <img src="{{ asset(publication.picture) }}" class="w-75 mx-auto" alt="Photo scolaire">
                         <div class="card-body">
                             <p class="card-text ">
                             {{ publication.descriptionPost }}
                             </p>
                         </div>
-                    <a class="btn btn-form" href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
+                    <a class="btn btn-form mx-auto" href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
                 </div>
             </div>
         {% endif %}

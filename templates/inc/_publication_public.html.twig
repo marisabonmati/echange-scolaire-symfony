@@ -1,14 +1,14 @@
 
                 <div class="col-12 col-lg-6 mb-4">
                     <div class="card p-3">
-                        <h3 class="text-center p-4">{{ publication.title }}</h3>
-                        <img src="{{ asset(publication.picture) }}" class="w-25" alt="Photo scolaire">
+                        <h3 class="text-center p-1">{{ publication.title }}</h3>
+                        <img src="{{ asset(publication.picture) }}" class="w-75 mx-auto" alt="Photo scolaire">
                         <div class="card-body">
                             <p class="card-text ">
-                                {{ publication.descriptionPost }}
+                                {{ publication.descriptionPost[:150] }}...
                             </p>
                         </div>
-                        <a href="{{ path('annonce', {id: publication.userPost.id}) }}" class="btn btn-form ">Afficher le profil</a>
+                        <a href="{{ path('annonce', {id: publication.userPost.id}) }}" class="btn btn-form mx-auto">Afficher le profil</a>
                     </div>
                 </div>
 
