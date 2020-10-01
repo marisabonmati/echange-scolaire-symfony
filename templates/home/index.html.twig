@@ -40,5 +40,9 @@
 
 <section class="container-fluid bg-light">
     <h2 class="text-center py-5">Actualités des échanges scolaires</h2>
+    {% for publication in list_publication %}
+        {% include 'inc/_publication_public.html.twig' %}
+    {% endfor %}
+
 </section>
 {% endblock %}

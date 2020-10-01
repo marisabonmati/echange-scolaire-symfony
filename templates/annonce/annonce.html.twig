@@ -81,34 +81,12 @@
         <!-- Historique du profil desktop -->
 
         <section class="container-fluid mb-3">
-            <div class="container mx-auto">
-                <div class="row">
-                    {% for publicationRepository in list_publication %}
-
-                        <div class="col-12 col-lg-6 mb-4">
-                            <p>TOTOTOT</p>
-                            <h3 class="text-center p-4">{{ publication.title }}</h3>
-                            <div class="card p-3">
-                                <img src="{{ asset(publication.pictureFile) }}" class="w-25" alt="Photo scolaire">
-                                <div class="card-body">
-                                    <p class="card-text ">
-                                        {{ publication.descriptionPost }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {% if app.user and app.user == publication.user %}
-                            <a href="{{ path('publication_edit', {id: publication.id}) }}">Modifier la publication</a>
-                            <a href="{{ path('publication') }}">Ajouter une publication</a>
-
-                        {% endif %}
-                    {% endfor %}
-
-                </div>
-            </div>
+            {% for publication in list_publication %}
+                {% if app.user == publication.userPost %}
+                    {% include 'inc/_publication_public.html.twig' %}
+                {% endif %}
+            {% endfor %}
         </section>
-
 
         <!-- Avis / Tapez votre commentaire desktop -->
 
