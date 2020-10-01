@@ -53,16 +53,17 @@
                                 au {{ user.disponibilityDateEnd| date('d/m/Y') }}
                             </p>
 
-                            <p><i class="fas fa-retweet colorIcon">
+                            <p><i class="fas fa-retweet colorIcon"></i>
                                 Type d'échange souhaité : {{ user.options }}
                             </p>
 
                             <p><i class="fas fa-globe-europe colorIcon"></i>
-                                Langue enseignée : {{ user.language }}
+                                Langue enseignée : {{ user.language| join(', ', ' et ') }}
+
                             </p>
 
                             <p><i class="fas fa-graduation-cap colorIcon"></i>
-                                Niveaux enseignés : {{ user.level }}
+                                Niveaux enseignés : {{ user.level| join(', ', ' et ') }}
                             </p>
 
                             <p><i class="mr-2 iconvsp fas fa-users colorIcon"></i>
