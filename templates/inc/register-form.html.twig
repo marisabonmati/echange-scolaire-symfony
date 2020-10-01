@@ -48,10 +48,7 @@
     <div class="mt-5 text-center">
         {{ form_widget(registrationForm.agreeTerms) }}
         {{ form_errors(registrationForm.agreeTerms) }}
-
-        <label class="form-check-label" for="invalidCheck3">
-            J'ai lu et j'accepte <a href="/mentionapropos.html#droits">les termes et conditions</a>
-        </label>
+        <a href="{{ path('mentions/a/propos') }}">termes et conditions</a>
     </div>
     <div class="my-5">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas maintenant</button>

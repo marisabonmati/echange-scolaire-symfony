@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05528a25-ef89-4f3c-81e3-f61a209ec064" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/templates/annonce/annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/annonce.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profil/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/profil.html.twig" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inc/register-form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/register-form.html.twig" afterDir="false" />
+>>>>>>> 8f71208f022b11c5c0adf3d87e3ffea84d4cc993
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
