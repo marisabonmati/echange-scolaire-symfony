@@ -49,8 +49,7 @@
             </div>
         </section>
 
-        <!-- Géolocalisation / Calendrier d'accueil / Capacités d'accueil /
-            Numéro de téléphone / Boutton en "recherche d'échange" -->
+        <!-- Configuration du Profil -->
         <section class="container-fluid bg-light ">
             <div class="container">
                 <div class="text-center">
@@ -140,7 +139,7 @@
             </div>
         </section>
 
-        <!-- Plus de configuration du Profil-->
+        <!-- Configuration personnelle du Profil-->
         <section class="container-fluid ">
             <div class="container">
                 <div class="text-center">
@@ -209,7 +208,7 @@
             </div>
         </section>
 
-        <!-- Publication du profil -->
+        <!-- Publications faites par le profil -->
 
         <section class="container-fluid bg-light mb-3">
             <div class="container mx-auto">
@@ -219,7 +218,7 @@
                         <div class="col-12 col-lg-6 mb-4">
                             <h3 class="text-center p-4">{{ publication.title }}</h3>
                             <div class="card p-3">
-                                {{ publication.pictureFile }}
+                                <img src="{{ asset(publication.pictureFile) }}" class="w-25" alt="Photo scolaire">
                                 <div class="card-body">
                                     <p class="card-text ">
                                         {{ publication.descriptionPost }}
@@ -282,7 +281,6 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
     <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
 {% endblock %}
