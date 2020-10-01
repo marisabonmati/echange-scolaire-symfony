@@ -1,5 +1,4 @@
-        <div class="container mx-auto">
-            <div class="row">
+
                 <div class="col-12 col-lg-6 mb-4">
                     <div class="card p-3">
                         <h3 class="text-center p-4">{{ publication.title }}</h3>
@@ -9,7 +8,7 @@
                                 {{ publication.descriptionPost }}
                             </p>
                         </div>
+                        <a href="{{ path('annonce', {id: publication.userPost.id}) }}" class="btn-nav">Afficher le profil</a>
                     </div>
                 </div>
-            </div>
-        </div>
+
