@@ -6,47 +6,38 @@
 
     <section class="top">
 
-        <header id="recherche" class="container   p-5">
+        <header id="recherche" class="container p-5">
             <h1 class=" w-50 font-weight-bold ">Recherchez le voyage scolaire qui vous correspond !</h1>
             <div class="container" style="max-width: 500px">
                 <!-- AFFICHAGE DU FORMULAIRE DE RECHERCHE 'SELECT' -->
                 {{ form_start(search_form, {action: path('search_form')}) }}
-                <div class="container text-center my-5 p-3 w-100">
-
+                <div class="container text-center my-5 p-3 w-100 recherche2">
 
                     <div class="form-group  mx-auto">
                         <label class="col-form-label ">Sélectionnez la langue </label>
                         <div>
                             {{ form_widget(search_form.Langue, {attr: {class: 'select-css w-50 mx-auto '}}) }}
-
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Vous souhaitez</label>
                             {{ form_widget(search_form.Options, {attr: {class: 'select-css w-50 mx-auto '}}) }}
-
                     </div>
-
 
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Vous recherchez un</label>
                             {{ form_widget(search_form.Entite, {attr: {class: 'select-css w-50 mx-auto'}}) }}
-
                     </div>
 
-
                     <div class="my-5">
-
                             {{ form_widget(search_form.submit, {attr: {class: ' w-50 mx-auto btn btn-form'}}) }}
                     </div>
 
                 </div>
                 {{ form_end(search_form) }}
             </div>
-
         </header>
-
     </section>
 
     <section class="container inscription">

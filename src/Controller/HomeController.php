@@ -49,6 +49,9 @@ class HomeController extends AbstractController
      */
     public function searchForm(Request $request, UserRepository $userRepository)
     {   //CETTE FONCTION PERMET DE TRAITER LES REQUETES DE LA PAGE HOME + PAGE SEARCH
+        if($request->getMethod()!='POST'){
+            return $this->redirectToRoute('home');
+        }
             $searchForm = $this->createForm(RechercheType::class);
             $affinerForm = $this->createForm(AffinerRechercheType::class);
 
