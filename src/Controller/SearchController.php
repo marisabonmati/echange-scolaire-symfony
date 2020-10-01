@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SearchController extends AbstractController
 {
-    
+
     /**
      * @Route("/search/nav", name="search_nav")
      */

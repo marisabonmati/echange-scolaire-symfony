@@ -42,7 +42,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $queryBuilder = $this->createQueryBuilder('u');
 
         $i = 0;
-        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options', 'tags'] as $column) {
+        foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column) {
 
             foreach ($explodedQ as $word) {
                 $queryBuilder->orWhere('u.' . $column . ' LIKE :word' . $i);
