@@ -56,7 +56,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
                 $user->addTag($this->getReference('tag' . random_int(0, TagFixtures::TAG_COUNT -1)));
             }
             $this->addReference('user' . $i, $user);
-            $user->setEntite($faker->randomElement(['enseignant', 'etablissement']));
+            $user->setEntite($faker->randomElement(['enseignant', 'établissement']));
             $manager->persist($user);
         }
         $manager->flush();
