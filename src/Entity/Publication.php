@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\PublicationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=PublicationRepository::class)
@@ -26,6 +29,12 @@ class Publication
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @var File
+     * @Assert\Image (maxSize="8M", mimeTypes={"image/jpeg", "image/jpg", "image/png", "image/webp"})
+     */
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="text")
@@ -64,6 +73,22 @@ class Publication
         $this->picture = $picture;
 
         return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPictureFile(): File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param File $pictureFile
+     */
+    public function setPictureFile(File $pictureFile): void
+    {
+        $this->pictureFile = $pictureFile;
     }
 
     public function getDescriptionPost(): ?string
