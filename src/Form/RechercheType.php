@@ -35,8 +35,6 @@ class RechercheType extends AbstractType
                     $languagesAsArray = array_map(function($l){
                         return $l['language'];
                     }, $languages);
-                    // $languagesAsArray = ['anglais', 'français', 'suisse']
-                    // => [ 'Anglais' => 'anglais', 'Français' => 'français', 'Suisse' => 'suisse']
                     $result = [];
                     foreach($languagesAsArray as $language) {
                         $result[ucfirst($language)] = $language;
@@ -67,7 +65,6 @@ class RechercheType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
         ]);
     }
 }

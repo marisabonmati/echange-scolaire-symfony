@@ -38,25 +38,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     public function searchNav($q)
     {
-        // delimiter avec un espace => Je vais à l'école => ["Je", "vais", "à", "l'école"]
-        // delimiter avec ' => ["Je vais à l" , "école"]
+
         $explodedQ = explode(" ", $q);
-        // SELECT * FROM game as g WHERE g.title LIKE '%et%' OR g.title LIKE '%totam%'
-        $queryBuilder = $this->createQueryBuilder('u');// g est l'alias de notre table game
+        $queryBuilder = $this->createQueryBuilder('u');
 
 
-      /*  $i = 0;
-        foreach ($explodedQ as $word) {
-            $queryBuilder->orWhere('u.country LIKE :word' . $i);
-            $queryBuilder->setParameter('word' . $i, '%' . $word . '%'); // :word0 = '%et%'
-            $i++;
-        }*/
         $i = 0;
         foreach (['firstname', 'adress', 'cp', 'city', 'country', 'language', 'level', 'lastName', 'options'] as $column){
 
             foreach ($explodedQ as $word) {
                 $queryBuilder->orWhere('u.'.$column.' LIKE :word' .$i);
-                $queryBuilder->setParameter('word'.$i, '%'.$word.'%'); // :word0 = '%et%'
+                $queryBuilder->setParameter('word'.$i, '%'.$word.'%');
                 $i++;
             }
         }
@@ -138,6 +130,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         }
         return $queryBuilder->getQuery()->getResult();
 
+    }
+
+    public function actualites()
+    {
+        return $this->createQueryBuilder('u')
+            ->setMaxResults(2)
+            ->orderBy('RAND()')
+            ->getQuery()
+            ->getResult();
     }
 
 }

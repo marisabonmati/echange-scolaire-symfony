@@ -20,9 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4974c02-b69e-4ec3-861f-a86972c661ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DoctrineFunctions/RandFunction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RechercheType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RechercheType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/OpinionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OpinionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PublicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PublicationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TagRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inc/_user_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/_user_list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/search/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/search.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +158,16 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="HomeController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Controller/HomeController.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.HomeController.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -160,6 +178,7 @@
       <updated>1601306876118</updated>
       <workItem from="1601306878173" duration="3304000" />
       <workItem from="1601450949144" duration="22192000" />
+      <workItem from="1601537706805" duration="8527000" />
     </task>
     <servers />
   </component>
@@ -235,6 +254,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1601370547038" />
+    <state x="474" y="135" key="NewPhpClassDialog" timestamp="1601545503952">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="474" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1601545503952" />
     <state x="477" y="11" width="581" height="801" key="find.popup" timestamp="1601369766786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

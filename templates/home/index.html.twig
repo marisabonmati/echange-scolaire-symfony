@@ -7,9 +7,7 @@
 
         <header id="recherche" class="container p-5">
             <h1 class="w-50 font-weight-bold">Recherchez le voyage scolaire qui vous correspond !</h1>
-           {#  <div class="row mx-auto">
-            {{ form(search_form, { attr: { class: 'p-3 text-center'}, action: path('search_form') }) }}
-            </div>#}
+
         <div class="container"  style="max-width: 500px">
             {{ form_start(search_form, {action: path('search_form')}) }}
             <div class="container text-center my-5 p-3 w-100">
@@ -81,5 +79,7 @@
 
 <section class="container-fluid bg-light">
     <h2 class="text-center py-5">Actualités des échanges scolaires</h2>
+ {%include 'inc/_user_list.html.twig' %}
+
 </section>
 {% endblock %}

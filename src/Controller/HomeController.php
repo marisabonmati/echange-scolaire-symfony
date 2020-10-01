@@ -35,11 +35,12 @@ class HomeController extends AbstractController
      */
     public function home(Request $request, UserRepository $userRepository, EntityManagerInterface $manager)
     {
-
+        $users = $userRepository->actualites();
         $searchForm = $this->createForm(RechercheType::class);
 
         return $this->render('home/index.html.twig', [
             'search_form' => $searchForm->createView(),
+            'list_users' =>  $users
         ]);
     }
 
@@ -67,5 +68,6 @@ class HomeController extends AbstractController
         ]);
 
     }
+
 
 }
