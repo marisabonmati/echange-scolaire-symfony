@@ -39,7 +39,7 @@
             </div>
         </header>
     </section>
-
+    {% if not app.user %}
     <section class="container inscription">
         <article class="inscrivez">
             <h2 class="text-center p-4">Inscrivez-vous !</h2>
@@ -69,8 +69,11 @@
         </article>
 
         <!--Bouton vers modal inscription-->
+
         <a href="{{ path('app_register') }}" data-toggle="modal" data-target="#exampleModal" class="btn btn-form" id="btnInscription">Inscription</a>
+
     </section>
+    {% endif %}
 
 <section class="container-fluid bg-light">
     <h2 class="text-center py-5">Actualités des échanges scolaires</h2>
