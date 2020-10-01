@@ -32,10 +32,12 @@
                             <img src="{{ asset(user.photo) }}" class="w-100" alt="">
                         {% endif %}
 
-                        <div class="py-2">
-                            {{ form_widget(profilForm.photoFile) }}
-                            {{ form_errors(profilForm.photoFile) }}
-                        </div>
+                        <fieldset class=" border rounded m-2 p-2">
+                            <p><i class=" mr-2 couleur fas fa-camera"></i> Ajouter votre photo de profil
+                                {{ form_widget(profilForm.photoFile) }}
+                                {{ form_errors(profilForm.photoFile) }}
+                            </p>
+                        </fieldset>
                     </div>
 
                     <!--Description profil -->
