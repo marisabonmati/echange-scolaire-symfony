@@ -120,13 +120,5 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $queryBuilder->getQuery()->getResult();
     }
 
-    public function actualites()
-    {   // REQUETE ALEATOIRE POUR AFFICHER DEUX PROFILS D'UTILISATEURS
-        return $this->createQueryBuilder('u')
-            ->setMaxResults(2)
-            ->orderBy('RAND()')
-            ->getQuery()
-            ->getResult();
-    }
 
 }
