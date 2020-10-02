@@ -76,10 +76,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function searchSelect($language, $options, $entite)
     {   // REQUETE POUR LE FORMULAIRE DE RECHERCHE 'SELECT' SUR LA PAGE INDEX
         return $this->createQueryBuilder('u')
-            ->where('u.language = :language')
+            ->where('u.language LIKE :language')
             ->andWhere('u.options = :options')
             ->andWhere('u.entite = :entite')
-            ->setParameter('language', $language)
+            ->setParameter('language', '%'.$language.'%')
             ->setParameter('options', $options)
             ->setParameter('entite', $entite)
             ->getQuery()
@@ -90,15 +90,23 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {   // REQUETE POUR LE FORMULAIRE DE LA RECHERCHE AVANCEE SUR LA PAGE SEARCH
 
         $queryBuilder = $this->createQueryBuilder('u')
-            ->where('u.language = :language')
+            ->where('u.language LIKE :language')
             ->andWhere('u.options IN (:options)')
-            ->andWhere('u.level IN (:level)')
+            // ->andWhere('u.level IN (:level)') // u.level = [ "english","french"] et ("french","english")
+                // lycee LIKE %u.level
+                // OR college LIKE %u.level
             ->andWhere('u.country = :country')
-            ->setParameter('language', $language)
+            ->setParameter('language', '%'.$language.'%')
             ->setParameter('options', $options)
-            ->setParameter('level', $level)
+            // ->setParameter('level', $level)
             ->setParameter('country', $country);
-
+        $or = $queryBuilder->expr()->orX();
+        $i = 0;
+        foreach ($level as $l) {
+            $or->add('u.level LIKE :level'.$i);
+            $queryBuilder->setParameter('level'.$i, '%'.$l.'%');
+        }
+        $queryBuilder->andWhere($or);
         switch ($capacity) {
             case '<30':
                 $queryBuilder->andWhere('u.capacity < :capacity')

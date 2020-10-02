@@ -58,7 +58,7 @@ class RechercheType extends AbstractType
                 'label' => 'Vous recherchez un',
                 'choices' => [
                     'Enseignant' => 'enseignant',
-                    'Etablissement' => 'etablissement'
+                    'Etablissement' => 'établissement'
                 ]
             ])
             ->add('submit', SubmitType::class, ['label' => 'Valider']);
