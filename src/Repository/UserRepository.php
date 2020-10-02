@@ -92,24 +92,21 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $queryBuilder = $this->createQueryBuilder('u')
             ->where('u.language LIKE :language')
             ->andWhere('u.options IN (:options)')
-            //->andWhere('u.level IN (:level)')
+            // ->andWhere('u.level IN (:level)') // u.level = [ "english","french"] et ("french","english")
+                // lycee LIKE %u.level
+                // OR college LIKE %u.level
             ->andWhere('u.country = :country')
             ->setParameter('language', '%'.$language.'%')
             ->setParameter('options', $options)
-            //->setParameter('level', $level)
+            // ->setParameter('level', $level)
             ->setParameter('country', $country);
-
         $or = $queryBuilder->expr()->orX();
-
         $i = 0;
-
-        foreach ($level as $l){
+        foreach ($level as $l) {
             $or->add('u.level LIKE :level'.$i);
-            $queryBuilder->setParameter('level', '%'.$l.'%');
+            $queryBuilder->setParameter('level'.$i, '%'.$l.'%');
         }
-
         $queryBuilder->andWhere($or);
-
         switch ($capacity) {
             case '<30':
                 $queryBuilder->andWhere('u.capacity < :capacity')

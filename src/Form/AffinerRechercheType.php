@@ -36,7 +36,7 @@ class AffinerRechercheType extends AbstractType
                 'choices' => array(
                     'Accueillir' => 'voyage',
                     'Voyager' => 'accueil',
-                    'Echanger' => 'échange'
+                    'Échanger' => 'échange'
                 ),
                 'expanded' => true,
                 'multiple' => true
@@ -81,8 +81,8 @@ class AffinerRechercheType extends AbstractType
             ))
             ->add('level', ChoiceType::class, [
                 'choices' => array(
-                    'Lycée' => 'lycée',
-                    'Collège' => 'collège'
+                    'Lycée' => 'lycee',
+                    'Collège' => 'college'
                 ),
                 'expanded' => true,
                 'multiple' => true

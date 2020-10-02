@@ -51,7 +51,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setDisponibilityDateStart($datetimeStart);
             $user->setDisponibilityDateEnd($faker->dateTime($datetimeStart, '+2 years' ));
             $user->setLevel($faker->randomElements(['lycee', 'college'], random_int(1, 2)));
-            $user->setOptions($faker->randomElement(['echange', 'accueil', 'voyage']));
+            $user->setOptions($faker->randomElement(['échange', 'accueil', 'voyage']));
             for ($j = 0; $j < random_int(0,5); $j++){
                 $user->addTag($this->getReference('tag' . random_int(0, TagFixtures::TAG_COUNT -1)));
             }
