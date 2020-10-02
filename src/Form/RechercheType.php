@@ -51,7 +51,7 @@ class RechercheType extends AbstractType
                 'choices' => [
                     'Accueillir' => 'voyage',
                     'Voyager' => 'accueil',
-                    'Echanger' => 'échange'
+                    'Echanger' => 'echange'
                 ]
             ])
             ->add('Entite', ChoiceType::class, [
