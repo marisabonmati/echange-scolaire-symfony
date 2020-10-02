@@ -31,7 +31,7 @@ class ProfilType extends AbstractType
             'Voyage' => 'Voyage',
         ];
         $languages = [
-            'Français' => 'Francais',
+            'Français' => 'Français',
             'Anglais' => 'Anglais',
             'Espagnol' => 'Espagnol',
         ];
